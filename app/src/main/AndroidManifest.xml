@@ -23,14 +23,51 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission
-        android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
 
     <!-- Per-app accounting. Granted by the user in Settings > Special access > Usage access. -->
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
+
+    <!--
+      Scoped package visibility, in place of QUERY_ALL_PACKAGES.
+
+      The production submission of versionCode 6 was rejected on 2026-10-02:
+      "Use of permission is not a permitted use case for QUERY_ALL_PACKAGES permission".
+      Google's position is that the permission may not be used where a narrower declaration
+      would do, and here one does - the app never needed to enumerate every package.
+
+      AppRepository asks the one question this element answers: which apps have a launcher
+      entry. That is the list the user picks from, and it is all the UI has ever shown.
+
+      The explicit <package> entries are the push carriers guarded by Protected. Several of
+      them have no launcher activity, so the intent filter above would not reveal them, and
+      Protected.setFor() has to resolve them by name or the guard silently stops working -
+      which is how a user ends up blocking their own notifications.
+
+      Consequence, accepted knowingly: a package with no launcher entry and no entry here is
+      no longer resolvable from its uid, so its traffic is attributed to "Other & system"
+      rather than shown by name. Totals stay correct; attribution is coarser.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+
+        <package android:name="com.google.android.gms" />
+        <package android:name="com.google.android.gsf" />
+        <package android:name="com.sec.spp.push" />
+        <package android:name="com.xiaomi.xmsf" />
+        <package android:name="com.huawei.hwid" />
+        <package android:name="com.hihonor.id" />
+        <package android:name="com.hihonor.push" />
+        <package android:name="com.heytap.mcs" />
+        <package android:name="com.coloros.mcs" />
+        <package android:name="com.vivo.pushservice" />
+        <package android:name="com.meizu.cloud" />
+        <package android:name="com.android.settings" />
+    </queries>
 
     <application
         android:allowBackup="false"
@@ -38,6 +75,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:localeConfig="@xml/locales_config"
         android:theme="@style/Theme.DataGate">
 
         <activity
@@ -77,6 +115,13 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--
+                    An app update kills the process and takes the tunnel with it. Without
+                    this the user's blocking is silently off after every Play update, with
+                    the rules still shown as set - the same invisible-failure shape as a
+                    reboot, which BOOT_COMPLETED already guards against.
+                -->
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 
