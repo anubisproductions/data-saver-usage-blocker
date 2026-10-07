@@ -7,44 +7,56 @@
     android:orientation="vertical">
 
     <!-- Onboarding gate: shown until Usage access is granted -->
-    <LinearLayout
+    <!--
+        The id and the visibility belong on the ScrollView, not on the LinearLayout inside it.
+        MainActivity toggles R.id.onboarding against the dashboard, and both siblings are
+        match_parent: if the scroller stays visible while its content is hidden, it still
+        claims the whole height and the dashboard is measured to nothing - a blank screen.
+    -->
+    <ScrollView
         android:id="@+id/onboarding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="28dp"
+        android:fillViewport="true"
         android:visibility="gone">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/onboard_title"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="28dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:lineSpacingMultiplier="1.15"
-            android:text="@string/onboard_body"
-            android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onboard_title"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/grant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="@string/onboard_button" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:lineSpacingMultiplier="1.15"
+                android:text="@string/onboard_body"
+                android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/onboard_hint"
-            android:textSize="13sp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/grant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="@string/onboard_button" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/onboard_hint"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Dashboard -->
     <LinearLayout
@@ -113,6 +125,45 @@
                 android:layout_marginTop="8dp"
                 android:textSize="13sp"
                 android:textStyle="bold" />
+
+            <!--
+                One decision, always visible. Two testers opened the app and closed it
+                inside a minute without ever switching blocking on (FINDINGS.md F9): a
+                dashboard of numbers with the engine off offers nothing to do next. This
+                block always states the single next action, and it doubles as the warning
+                that blocking is running silently with notifications denied (F10).
+            -->
+            <LinearLayout
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/banner_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/banner_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingMultiplier="1.1"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/banner_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
 
             <!-- The two numbers that make the case -->
             <LinearLayout
@@ -196,13 +247,34 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/list"
+        <!--
+            The list and its empty view share a frame so ListView.setEmptyView can swap
+            them. Before this there was no empty state at all, and a filtered-out search
+            was indistinguishable from an app that is not installed (FINDINGS.md F3).
+        -->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:divider="?android:attr/listDivider"
-            android:dividerHeight="1px" />
+            android:layout_weight="1">
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="?android:attr/listDivider"
+                android:dividerHeight="1px" />
+
+            <TextView
+                android:id="@+id/empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.15"
+                android:padding="28dp"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/open_blocking"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Declares the languages the app ships, so Android 13+ shows a Language entry under the
+    app's own system settings and honours a per-app choice. Must stay in step with the
+    values-xx folders and with LocalePrefs.SUPPORTED.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="ar" />
+    <locale android:name="de" />
+    <locale android:name="es" />
+    <locale android:name="fr" />
+    <locale android:name="hi" />
+    <locale android:name="id" />
+    <locale android:name="pt-BR" />
+    <locale android:name="pt-PT" />
+    <locale android:name="ru" />
+    <locale android:name="tr" />
+    <locale android:name="ur" />
+</locale-config>

@@ -4,7 +4,7 @@
 
     <!-- Onboarding -->
     <string name="onboard_title">One permission, then you\'re done</string>
-    <string name="onboard_body">Android keeps per-app data figures behind a setting called Usage access. Without it this app cannot see which apps are spending your data.\n\nIt reads counters that are already on your phone. Nothing is uploaded — this app has no internet permission at all.</string>
+    <string name="onboard_body">Android keeps per-app data figures behind a setting called Usage access. Without it this app cannot see which apps are spending your data.\n\nIt reads counters that are already on your phone. Nothing is uploaded — this app has no internet permission at all.\n\nWhen you switch blocking on, Android will say this device is connected to the internet through Data Saver, and show a key icon. That is Android\'s fixed wording for the local filtering it uses, and every app of this kind gets it. Nothing is routed anywhere — the permission list has no internet permission to route it with.</string>
     <string name="onboard_button">Grant Usage access</string>
     <string name="onboard_hint">Find “Data Saver” in the list and turn it on, then come back.</string>
 
@@ -15,7 +15,7 @@
     <string name="plus_wifi">plus %1$s on Wi‑Fi</string>
     <string name="since_date">since %1$s</string>
     <string name="background_label">Used in the background</string>
-    <string name="background_hint">Data these apps spent on their own, while you weren\'t using them.</string>
+    <string name="background_hint">Data these apps spent on their own, while you weren\'t using them — mobile and Wi‑Fi together.</string>
     <string name="saved_label">Estimated saved</string>
     <string name="saving_on">Data saving is on</string>
     <string name="saving_off">Data saving is off</string>
@@ -42,7 +42,7 @@
     <string name="blocking_title">Blocking</string>
     <string name="blocking_hint">Choose which networks each app may use. On a metered bundle the usual answer is “no mobile data, Wi‑Fi is fine”.</string>
     <string name="blocking_none">Nothing blocked</string>
-    <string name="blocking_active">Active · Wi‑Fi: %1$d · Mobile: %2$d</string>
+    <string name="blocking_active">Active · Wi‑Fi: %1$s · Mobile: %2$s</string>
     <string name="blocking_inactive">Rules set, but not active — permission is required</string>
     <string name="blocked_everywhere">Blocked on Wi‑Fi and mobile</string>
     <string name="blocked_mobile_only">Blocked on mobile only</string>
@@ -86,4 +86,23 @@
 
 Look for “%1$s” in the list and switch it on, then press Back to return here. Nothing else on that screen needs changing.</string>
     <string name="usage_handoff_go">Open Settings</string>
+    <string name="menu_settings">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_check_update">Check for updates</string>
+    <string name="language_system">Phone language</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Nothing is restricted yet</string>
+    <string name="banner_none_body">Pick an app below to stop it using mobile data, or restrict the biggest background users in one tap.</string>
+    <string name="banner_none_action">Restrict top offenders</string>
+    <string name="banner_off_title">Blocking is off</string>
+    <string name="banner_off_body">Your rules are saved, but nothing is being enforced yet. Turn blocking on to start saving.</string>
+    <string name="banner_off_action">Turn on blocking</string>
+    <string name="banner_silent_title">Blocking is on, but silent</string>
+    <string name="banner_silent_body">Notifications are switched off, so nothing in your status bar shows that blocking is active.</string>
+    <string name="banner_silent_action">Turn on notifications</string>
+    <string name="empty_no_match">No app matches “%1$s”.</string>
+    <string name="empty_filter">No apps match this filter.\nTry “All” to see every app.</string>
+
+    <string name="settings_notification">Notification settings</string>
 </resources>

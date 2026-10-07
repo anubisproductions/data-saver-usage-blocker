@@ -3,7 +3,7 @@
     <string name="app_name">Экономия трафика</string>
 
     <string name="onboard_title">Одно разрешение — и всё</string>
-    <string name="onboard_body">Android хранит расход трафика по приложениям за настройкой «Доступ к данным об использовании». Без неё это приложение не видит, какие программы тратят ваш трафик.\n\nОно читает счётчики, которые уже есть в вашем телефоне. Ничего не отправляется — у этого приложения вообще нет разрешения на интернет.</string>
+    <string name="onboard_body">Android хранит расход трафика по приложениям за настройкой «Доступ к данным об использовании». Без неё это приложение не видит, какие программы тратят ваш трафик.\n\nОно читает счётчики, которые уже есть в вашем телефоне. Ничего не отправляется — у этого приложения вообще нет разрешения на интернет.\n\nКогда вы включите блокировку, Android сообщит, что устройство подключено к интернету через Data Saver, и покажет значок ключа. Это стандартная формулировка Android для локальной фильтрации, она появляется у любого такого приложения. Ничего никуда не передаётся — в списке разрешений нет доступа в интернет.</string>
     <string name="onboard_button">Предоставить доступ</string>
     <string name="onboard_hint">Найдите «Экономия трафика» в списке, включите и вернитесь сюда.</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">плюс %1$s по Wi‑Fi</string>
     <string name="since_date">с %1$s</string>
     <string name="background_label">Потрачено в фоне</string>
-    <string name="background_hint">Трафик, который эти приложения потратили сами, пока вы ими не пользовались.</string>
+    <string name="background_hint">Данные, которые эти приложения потратили сами, пока вы ими не пользовались — мобильный и Wi‑Fi вместе.</string>
     <string name="saved_label">Примерно сэкономлено</string>
     <string name="saving_on">Экономия включена</string>
     <string name="saving_off">Экономия выключена</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">Блокировка</string>
     <string name="blocking_hint">Выберите, какие сети может использовать каждое приложение. При лимитном тарифе обычный ответ — «без мобильного интернета, Wi‑Fi можно».</string>
     <string name="blocking_none">Ничего не заблокировано</string>
-    <string name="blocking_active">Активно · Wi‑Fi: %1$d · Моб.: %2$d</string>
+    <string name="blocking_active">Активно · Wi‑Fi: %1$s · Моб.: %2$s</string>
     <string name="blocking_inactive">Правила заданы, но не действуют — требуется разрешение</string>
     <string name="blocked_everywhere">Заблокировано в Wi‑Fi и мобильной сети</string>
     <string name="blocked_mobile_only">Заблокировано только в мобильной сети</string>
@@ -82,4 +82,23 @@
 
 Найдите «%1$s» в списке и включите, затем нажмите Назад. Больше там ничего менять не нужно.</string>
     <string name="usage_handoff_go">Открыть настройки</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="settings_language">Язык</string>
+    <string name="settings_check_update">Проверить обновления</string>
+    <string name="language_system">Язык телефона</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Пока ничего не ограничено</string>
+    <string name="banner_none_body">Выберите приложение ниже, чтобы запретить ему тратить мобильный трафик, или одним касанием ограничьте самых прожорливых в фоне.</string>
+    <string name="banner_none_action">Ограничить самых прожорливых</string>
+    <string name="banner_off_title">Блокировка выключена</string>
+    <string name="banner_off_body">Правила сохранены, но пока не действуют. Включите блокировку, чтобы начать экономить.</string>
+    <string name="banner_off_action">Включить блокировку</string>
+    <string name="banner_silent_title">Блокировка работает, но незаметно</string>
+    <string name="banner_silent_body">Уведомления отключены, поэтому в строке состояния ничто не показывает, что блокировка активна.</string>
+    <string name="banner_silent_action">Включить уведомления</string>
+    <string name="empty_no_match">Нет приложений, соответствующих «%1$s».</string>
+    <string name="empty_filter">Нет приложений, соответствующих этому фильтру.\nВыберите «Все», чтобы увидеть все приложения.</string>
+
+    <string name="settings_notification">Настройки уведомлений</string>
 </resources>

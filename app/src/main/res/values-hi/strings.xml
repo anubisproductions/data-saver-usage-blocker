@@ -3,7 +3,7 @@
     <string name="app_name">डेटा सेवर</string>
 
     <string name="onboard_title">बस एक अनुमति, फिर हो गया</string>
-    <string name="onboard_body">Android हर ऐप का डेटा खर्च «उपयोग पहुँच» (Usage access) नाम की सेटिंग के पीछे रखता है। इसके बिना यह ऐप नहीं देख सकता कि कौन-से ऐप आपका डेटा खर्च कर रहे हैं।\n\nयह आपके फ़ोन में पहले से मौजूद काउंटर पढ़ता है। कुछ भी अपलोड नहीं होता — इस ऐप के पास इंटरनेट की अनुमति है ही नहीं।</string>
+    <string name="onboard_body">Android हर ऐप का डेटा खर्च «उपयोग पहुँच» (Usage access) नाम की सेटिंग के पीछे रखता है। इसके बिना यह ऐप नहीं देख सकता कि कौन-से ऐप आपका डेटा खर्च कर रहे हैं।\n\nयह आपके फ़ोन में पहले से मौजूद काउंटर पढ़ता है। कुछ भी अपलोड नहीं होता — इस ऐप के पास इंटरनेट की अनुमति है ही नहीं।\n\nजब आप ब्लॉकिंग चालू करेंगे, ऐंड्रॉयड कहेगा कि यह डिवाइस Data Saver के ज़रिए इंटरनेट से जुड़ा है, और एक कुंजी का आइकन दिखाएगा। यह स्थानीय फ़िल्टरिंग के लिए ऐंड्रॉयड का तय वाक्य है। कहीं कुछ भेजा नहीं जाता — अनुमति सूची में इंटरनेट अनुमति है ही नहीं।</string>
     <string name="onboard_button">उपयोग पहुँच दें</string>
     <string name="onboard_hint">सूची में «डेटा सेवर» ढूँढें, उसे चालू करें और वापस आएँ।</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">साथ ही Wi‑Fi पर %1$s</string>
     <string name="since_date">%1$s से</string>
     <string name="background_label">बैकग्राउंड में खर्च</string>
-    <string name="background_hint">वह डेटा जो इन ऐप्स ने खुद ही खर्च किया, जब आप उन्हें इस्तेमाल नहीं कर रहे थे।</string>
+    <string name="background_hint">इन ऐप्स ने अपने आप खर्च किया डेटा, जब आप उन्हें इस्तेमाल नहीं कर रहे थे — मोबाइल और Wi‑Fi मिलाकर।</string>
     <string name="saved_label">अनुमानित बचत</string>
     <string name="saving_on">डेटा बचत चालू है</string>
     <string name="saving_off">डेटा बचत बंद है</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">ब्लॉकिंग</string>
     <string name="blocking_hint">चुनें कि हर ऐप कौन-से नेटवर्क इस्तेमाल कर सकता है। सीमित डेटा पैक पर आम जवाब है “मोबाइल डेटा नहीं, वाई‑फ़ाई ठीक है”।</string>
     <string name="blocking_none">कुछ भी ब्लॉक नहीं</string>
-    <string name="blocking_active">सक्रिय · वाई‑फ़ाई: %1$d · मोबाइल: %2$d</string>
+    <string name="blocking_active">सक्रिय · वाई‑फ़ाई: %1$s · मोबाइल: %2$s</string>
     <string name="blocking_inactive">नियम सेट हैं, पर सक्रिय नहीं — अनुमति ज़रूरी है</string>
     <string name="blocked_everywhere">वाई‑फ़ाई और मोबाइल दोनों पर ब्लॉक</string>
     <string name="blocked_mobile_only">सिर्फ़ मोबाइल डेटा पर ब्लॉक</string>
@@ -78,4 +78,23 @@
 
 सूची में “%1$s” ढूंढें और उसे चालू करें, फिर बैक दबाकर यहाँ लौटें। उस स्क्रीन पर और कुछ बदलने की ज़रूरत नहीं।</string>
     <string name="usage_handoff_go">सेटिंग खोलें</string>
+    <string name="menu_settings">सेटिंग</string>
+    <string name="settings_language">भाषा</string>
+    <string name="settings_check_update">अपडेट देखें</string>
+    <string name="language_system">फ़ोन की भाषा</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">अभी कुछ भी प्रतिबंधित नहीं है</string>
+    <string name="banner_none_body">नीचे से कोई ऐप चुनें ताकि वह मोबाइल डेटा न ले, या एक टैप में बैकग्राउंड के सबसे बड़े उपयोगकर्ताओं को रोकें।</string>
+    <string name="banner_none_action">सबसे बड़े उपयोगकर्ता रोकें</string>
+    <string name="banner_off_title">ब्लॉकिंग बंद है</string>
+    <string name="banner_off_body">आपके नियम सहेजे गए हैं, लेकिन अभी लागू नहीं हो रहे। बचत शुरू करने के लिए ब्लॉकिंग चालू करें।</string>
+    <string name="banner_off_action">ब्लॉकिंग चालू करें</string>
+    <string name="banner_silent_title">ब्लॉकिंग चालू है, पर बिना सूचना के</string>
+    <string name="banner_silent_body">सूचनाएँ बंद हैं, इसलिए स्टेटस बार में कुछ नहीं दिखता कि ब्लॉकिंग चल रही है।</string>
+    <string name="banner_silent_action">सूचनाएँ चालू करें</string>
+    <string name="empty_no_match">“%1$s” से मेल खाने वाला कोई ऐप नहीं।</string>
+    <string name="empty_filter">इस फ़िल्टर से कोई ऐप मेल नहीं खाता।\nसभी ऐप देखने के लिए “सभी” आज़माएँ।</string>
+
+    <string name="settings_notification">सूचना सेटिंग्स</string>
 </resources>

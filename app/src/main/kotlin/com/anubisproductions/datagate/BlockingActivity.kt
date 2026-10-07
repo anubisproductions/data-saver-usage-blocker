@@ -1,6 +1,7 @@
 package com.anubisproductions.datagate
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.VpnService
 import android.os.Bundle
@@ -17,6 +18,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Spinner
+import androidx.core.text.BidiFormatter
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -33,6 +35,14 @@ import android.widget.Toast
  * ships; the measurement is what nothing else has, so measurement leads.
  */
 class BlockingActivity : Activity() {
+
+    // The chosen language must reach every component that shows text - the service
+    // included, because the ongoing notification is text. No-op on API 33+.
+    override fun attachBaseContext(newBase: Context) =
+        super.attachBaseContext(LocalePrefs.wrap(newBase))
+
+
+    private val bidi = BidiFormatter.getInstance()
 
     private companion object {
         const val REQUEST_CONSENT = 2
@@ -138,6 +148,12 @@ class BlockingActivity : Activity() {
         loadAsync()
     }
 
+    override fun onPause() {
+        super.onPause()
+        // Same as the dashboard: the query does not survive leaving the screen. FINDINGS.md F7.
+        search.text?.clear()
+    }
+
     override fun onResume() {
         super.onResume()
         renderStatus()
@@ -226,7 +242,13 @@ class BlockingActivity : Activity() {
         status.text = when {
             rules == 0 -> getString(R.string.blocking_none)
             BlockVpnService.isRunning ->
-                getString(R.string.blocking_active, wifiBlocked.size, mobileBlocked.size)
+                getString(
+                    R.string.blocking_active,
+                    // Same reason as formatBytes: two numerals separated by neutrals
+                    // inside an RTL string reorder without isolation.
+                    bidi.unicodeWrap(wifiBlocked.size.toString()),
+                    bidi.unicodeWrap(mobileBlocked.size.toString()),
+                )
             else -> getString(R.string.blocking_inactive)
         }
     }

@@ -3,7 +3,7 @@
 <resources>
     <string name="app_name">ڈیٹا سیور</string>
     <string name="onboard_title">ایک اجازت، پھر کام مکمل</string>
-    <string name="onboard_body">اینڈرائیڈ ہر ایپ کے ڈیٹا اعداد و شمار کو Usage access نامی ترتیب کے پیچھے رکھتا ہے۔ اس کے بغیر یہ ایپ نہیں دیکھ سکتی کہ کون سی ایپس آپ کا ڈیٹا خرچ کر رہی ہیں۔\n\nیہ وہی شمار پڑھتی ہے جو پہلے سے آپ کے فون پر موجود ہیں۔ کچھ بھی اپ لوڈ نہیں ہوتا — اس ایپ کے پاس انٹرنیٹ کی اجازت سرے سے موجود ہی نہیں۔</string>
+    <string name="onboard_body">اینڈرائیڈ ہر ایپ کے ڈیٹا اعداد و شمار کو Usage access نامی ترتیب کے پیچھے رکھتا ہے۔ اس کے بغیر یہ ایپ نہیں دیکھ سکتی کہ کون سی ایپس آپ کا ڈیٹا خرچ کر رہی ہیں۔\n\nیہ وہی شمار پڑھتی ہے جو پہلے سے آپ کے فون پر موجود ہیں۔ کچھ بھی اپ لوڈ نہیں ہوتا — اس ایپ کے پاس انٹرنیٹ کی اجازت سرے سے موجود ہی نہیں۔\n\nجب آپ بلاکنگ آن کریں گے تو اینڈروئیڈ کہے گا کہ یہ ڈیوائس Data Saver کے ذریعے انٹرنیٹ سے جڑا ہوا ہے، اور ایک چابی کا نشان دکھائے گا۔ یہ مقامی فلٹرنگ کے لیے اینڈروئیڈ کے اپنے الفاظ ہیں، اور ہر ایسی ایپ کے ساتھ آتے ہیں۔ کچھ بھی کہیں بھیجا نہیں جاتا — اجازتوں کی فہرست میں انٹرنیٹ کی اجازت ہے ہی نہیں۔</string>
     <string name="onboard_button">Usage access دیں</string>
     <string name="onboard_hint">فہرست میں ”ڈیٹا سیور“ تلاش کریں، اسے آن کریں، پھر واپس آئیں۔</string>
     <string name="cycle_label">اس سائیکل میں موبائل ڈیٹا</string>
@@ -12,7 +12,7 @@
     <string name="plus_wifi">مزید %1$s وائی فائی پر</string>
     <string name="since_date">%1$s سے</string>
     <string name="background_label">پس منظر میں استعمال ہوا</string>
-    <string name="background_hint">وہ ڈیٹا جو ان ایپس نے خود سے خرچ کیا، جب آپ انہیں استعمال نہیں کر رہے تھے۔</string>
+    <string name="background_hint">وہ ڈیٹا جو یہ ایپس آپ کے استعمال کے بغیر خود خرچ کرتی ہیں — موبائل اور Wi‑Fi ملا کر۔</string>
     <string name="saved_label">تخمینی بچت</string>
     <string name="saving_on">ڈیٹا کی بچت آن ہے</string>
     <string name="saving_off">ڈیٹا کی بچت آف ہے</string>
@@ -32,7 +32,7 @@
     <string name="blocking_title">بلاکنگ</string>
     <string name="blocking_hint">منتخب کریں کہ ہر ایپ کون سے نیٹ ورک استعمال کر سکتی ہے۔ محدود بنڈل پر عام جواب یہ ہوتا ہے: ”موبائل ڈیٹا نہیں، وائی فائی ٹھیک ہے“۔</string>
     <string name="blocking_none">کچھ بھی بلاک نہیں</string>
-    <string name="blocking_active">فعال · وائی فائی: %1$d · موبائل: %2$d</string>
+    <string name="blocking_active">فعال · وائی فائی: %1$s · موبائل: %2$s</string>
     <string name="blocking_inactive">قواعد مقرر ہیں مگر فعال نہیں — اجازت درکار ہے</string>
     <string name="blocked_everywhere">وائی فائی اور موبائل دونوں پر بلاک</string>
     <string name="blocked_mobile_only">صرف موبائل ڈیٹا پر بلاک</string>
@@ -74,4 +74,23 @@
 
 فہرست میں “%1$s” تلاش کرکے آن کریں، پھر واپس دبا کر یہاں لوٹ آئیں۔ اس اسکرین پر اور کچھ بدلنے کی ضرورت نہیں۔</string>
     <string name="usage_handoff_go">سیٹنگز کھولیں</string>
+    <string name="menu_settings">ترتیبات</string>
+    <string name="settings_language">زبان</string>
+    <string name="settings_check_update">اپ ڈیٹ چیک کریں</string>
+    <string name="language_system">فون کی زبان</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">ابھی تک کوئی ایپ محدود نہیں</string>
+    <string name="banner_none_body">نیچے سے کوئی ایپ چنیں تاکہ وہ موبائل ڈیٹا استعمال نہ کرے، یا ایک ٹیپ میں پسِ پردہ سب سے زیادہ خرچ کرنے والے ایپس کو محدود کریں۔</string>
+    <string name="banner_none_action">سب سے زیادہ خرچ کرنے والے محدود کریں</string>
+    <string name="banner_off_title">بلاکنگ بند ہے</string>
+    <string name="banner_off_body">آپ کے قواعد محفوظ ہیں، لیکن ابھی لاگو نہیں۔ بچت شروع کرنے کے لیے بلاکنگ آن کریں۔</string>
+    <string name="banner_off_action">بلاکنگ آن کریں</string>
+    <string name="banner_silent_title">بلاکنگ چالو ہے، مگر خاموش</string>
+    <string name="banner_silent_body">اطلاعات بند ہیں، اس لیے اسٹیٹس بار میں کوئی چیز یہ نہیں دکھاتی کہ بلاکنگ فعال ہے۔</string>
+    <string name="banner_silent_action">اطلاعات آن کریں</string>
+    <string name="empty_no_match">“%1$s” سے مطابقت رکھنے والی کوئی ایپ نہیں۔</string>
+    <string name="empty_filter">اس فلٹر سے مطابقت رکھنے والی کوئی ایپ نہیں۔\nتمام ایپس دیکھنے کے لیے “سب” آزمائیں۔</string>
+
+    <string name="settings_notification">اطلاعات کی ترتیبات</string>
 </resources>

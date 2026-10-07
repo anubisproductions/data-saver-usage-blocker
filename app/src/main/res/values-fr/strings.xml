@@ -3,7 +3,7 @@
     <string name="app_name">Économiseur de données</string>
 
     <string name="onboard_title">Une autorisation, et c\'est tout</string>
-    <string name="onboard_body">Android conserve la consommation de données de chaque application derrière un réglage appelé « Accès aux données d\'utilisation ». Sans lui, cette application ne peut pas voir quelles applis consomment vos données.\n\nElle lit des compteurs déjà présents sur votre téléphone. Rien n\'est envoyé — cette application n\'a aucune autorisation Internet.</string>
+    <string name="onboard_body">Android conserve la consommation de données de chaque application derrière un réglage appelé « Accès aux données d\'utilisation ». Sans lui, cette application ne peut pas voir quelles applis consomment vos données.\n\nElle lit des compteurs déjà présents sur votre téléphone. Rien n\'est envoyé — cette application n\'a aucune autorisation Internet.\n\nLorsque vous activez le blocage, Android indique que cet appareil est connecté à internet via Data Saver et affiche une icône de clé. C\'est la formulation fixe d\'Android pour le filtrage local, et elle apparaît pour toute application de ce type. Rien n\'est acheminé — la liste des autorisations ne contient aucune autorisation internet.</string>
     <string name="onboard_button">Accorder l\'accès à l\'utilisation</string>
     <string name="onboard_hint">Trouvez « Économiseur de données » dans la liste, activez-le, puis revenez.</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">plus %1$s en Wi‑Fi</string>
     <string name="since_date">depuis le %1$s</string>
     <string name="background_label">Consommé en arrière-plan</string>
-    <string name="background_hint">Données que ces applis ont dépensées d\'elles-mêmes, sans que vous les utilisiez.</string>
+    <string name="background_hint">Données que ces applications ont consommées d\'elles-mêmes, sans que vous les utilisiez — mobile et Wi‑Fi confondus.</string>
     <string name="saved_label">Économie estimée</string>
     <string name="saving_on">L\'économiseur est activé</string>
     <string name="saving_off">L\'économiseur est désactivé</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">Blocage</string>
     <string name="blocking_hint">Choisissez les réseaux que chaque application peut utiliser. Avec un forfait limité, la réponse habituelle est « pas de données mobiles, le Wi‑Fi convient ».</string>
     <string name="blocking_none">Rien de bloqué</string>
-    <string name="blocking_active">Actif · Wi‑Fi : %1$d · Mobile : %2$d</string>
+    <string name="blocking_active">Actif · Wi‑Fi : %1$s · Mobile : %2$s</string>
     <string name="blocking_inactive">Règles définies, mais inactives — une autorisation est requise</string>
     <string name="blocked_everywhere">Bloquée en Wi‑Fi et en données mobiles</string>
     <string name="blocked_mobile_only">Bloquée uniquement en données mobiles</string>
@@ -78,4 +78,23 @@
 
 Cherchez « %1$s » dans la liste et activez-le, puis appuyez sur Retour pour revenir ici. Rien d’autre n’est à modifier sur cet écran.</string>
     <string name="usage_handoff_go">Ouvrir les Paramètres</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_check_update">Rechercher des mises à jour</string>
+    <string name="language_system">Langue du téléphone</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Rien n\'est encore restreint</string>
+    <string name="banner_none_body">Choisissez une application ci-dessous pour l\'empêcher d\'utiliser les données mobiles, ou restreignez les plus gros consommateurs en arrière-plan d\'un seul geste.</string>
+    <string name="banner_none_action">Restreindre les plus gourmandes</string>
+    <string name="banner_off_title">Le blocage est désactivé</string>
+    <string name="banner_off_body">Vos règles sont enregistrées, mais rien n\'est encore appliqué. Activez le blocage pour commencer à économiser.</string>
+    <string name="banner_off_action">Activer le blocage</string>
+    <string name="banner_silent_title">Le blocage est actif, mais silencieux</string>
+    <string name="banner_silent_body">Les notifications sont désactivées : rien dans votre barre d\'état n\'indique que le blocage fonctionne.</string>
+    <string name="banner_silent_action">Activer les notifications</string>
+    <string name="empty_no_match">Aucune application ne correspond à « %1$s ».</string>
+    <string name="empty_filter">Aucune application ne correspond à ce filtre.\nEssayez « Toutes » pour les voir toutes.</string>
+
+    <string name="settings_notification">Paramètres de notification</string>
 </resources>

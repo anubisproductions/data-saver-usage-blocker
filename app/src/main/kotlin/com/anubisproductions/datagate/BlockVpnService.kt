@@ -10,7 +10,10 @@ import android.net.ConnectivityManager
 import android.net.VpnService
 import android.os.Build
 import android.os.ParcelFileDescriptor
+import android.system.ErrnoException
+import android.system.Os
 import android.system.OsConstants
+import android.system.StructPollfd
 import android.util.Log
 import com.anubisproductions.datagate.net.Packet
 import com.anubisproductions.datagate.net.Proto
@@ -31,12 +34,34 @@ import java.net.InetSocketAddress
  */
 class BlockVpnService : VpnService() {
 
+    // The chosen language must reach every component that shows text - the service
+    // included, because the ongoing notification is text. No-op on API 33+.
+    override fun attachBaseContext(newBase: Context) =
+        super.attachBaseContext(LocalePrefs.wrap(newBase))
+
+
     companion object {
         const val ACTION_START = "com.anubisproductions.datagate.action.START"
         const val ACTION_STOP = "com.anubisproductions.datagate.action.STOP"
-
-        private const val CHANNEL_ID = "datagate_engine"
+        /*
+         * Two ids: the original, and its replacement.
+         *
+         * v6 briefly shipped a second channel at IMPORTANCE_MIN so the user could minimise
+         * the ongoing notification. Measured on device, Android refuses it - a channel
+         * carrying a foreground-service notification is raised back to IMPORTANCE_LOW
+         * (requested=1, effective=2 in `dumpsys notification`), because an FGS notification
+         * has to stay visible. The setting was therefore doing nothing and was replaced by a
+         * link to Android's own channel screen, where the user does have real control.
+         *
+         * The original id is still deleted: it was created before this comment existed and
+         * would otherwise linger in the app's notification settings.
+         */
+        private const val CHANNEL_LEGACY = "datagate_engine"
+        const val ENGINE_CHANNEL = "datagate_engine_v2"
         private const val NOTIFICATION_ID = 1
+
+        /** How long poll() waits before the loop re-checks [running]. */
+        private const val POLL_TIMEOUT_MS = 250
 
         // Link-local addresses for the tun endpoint. Never leave the device.
         private const val TUN_V4 = "10.111.222.1"
@@ -79,6 +104,7 @@ class BlockVpnService : VpnService() {
         fun start(ctx: Context) = launch(ctx, ACTION_START)
 
         fun stop(ctx: Context) = launch(ctx, ACTION_STOP)
+
     }
 
     private var tun: ParcelFileDescriptor? = null
@@ -86,6 +112,7 @@ class BlockVpnService : VpnService() {
 
     /** Packages the tunnel is currently carrying, for the enforcement-time ledger. */
     private var enforcing: List<String> = emptyList()
+
     @Volatile private var running = false
 
     /** uid -> label, resolved lazily so the read loop never touches PackageManager. */
@@ -307,21 +334,56 @@ class BlockVpnService : VpnService() {
 
     // ------------------------------------------------------------------ read loop
 
-    private fun readLoop(fd: ParcelFileDescriptor, mode: BlockMode) {
-        val input = FileInputStream(fd.fileDescriptor)
-        val output = FileOutputStream(fd.fileDescriptor)
+    private fun readLoop(descriptor: ParcelFileDescriptor, mode: BlockMode) {
+        val input = FileInputStream(descriptor.fileDescriptor)
+        val output = FileOutputStream(descriptor.fileDescriptor)
         val buf = ByteArray(32_767)
+
+        // Wait for readability rather than re-entering read() immediately. The previous
+        // shape - `if (n <= 0) continue` - turned every no-data and every EOF into an
+        // unbounded spin: measured at 101.8% of a core on a Redmi 12 and 105.9% on a
+        // Galaxy A26, which drained one handset from 79% to 11% in under six hours.
+        // The poll timeout is what makes teardown responsive: interrupt() does not
+        // unblock a FileInputStream read, so the loop has to come up for air and
+        // re-check `running` on its own.
+        val pollFd = StructPollfd().apply {
+            fd = descriptor.fileDescriptor
+            events = OsConstants.POLLIN.toShort()
+        }
 
         Log.i(AttemptLog.TAG, "read loop started (mode=$mode)")
         try {
             while (running) {
+                val ready = try {
+                    Os.poll(arrayOf(pollFd), POLL_TIMEOUT_MS)
+                } catch (e: ErrnoException) {
+                    if (e.errno == OsConstants.EINTR) continue
+                    if (running) Log.w(AttemptLog.TAG, "tun poll failed: ${e.message}")
+                    break
+                }
+
+                // Descriptor closed or errored under us - teardown, or the framework
+                // revoking the tunnel. Either way there is nothing left to read.
+                val revents = pollFd.revents.toInt()
+                if (revents and (OsConstants.POLLHUP or OsConstants.POLLERR or
+                        OsConstants.POLLNVAL) != 0
+                ) {
+                    Log.i(AttemptLog.TAG, "tun descriptor closed (revents=$revents)")
+                    break
+                }
+                if (ready == 0) continue
+
                 val n = try {
                     input.read(buf)
                 } catch (e: Exception) {
                     if (running) Log.w(AttemptLog.TAG, "tun read failed: ${e.message}")
                     break
                 }
-                if (n <= 0) continue
+                // -1 is EOF: the interface is gone and no amount of retrying brings it
+                // back. 0 cannot happen after a successful poll, but treat it as a
+                // spurious wake-up rather than a reason to spin.
+                if (n < 0) break
+                if (n == 0) continue
 
                 val packet = Packet.parse(buf, n) ?: continue
                 record(packet)
@@ -403,9 +465,13 @@ class BlockVpnService : VpnService() {
     private fun startForegroundCompat(status: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val nm = getSystemService(NotificationManager::class.java)
+            // Retire the channel shipped up to v5. Leaving it behind would put a dead entry
+            // in the app's notification settings whose importance no longer controls
+            // anything.
+            runCatching { nm.deleteNotificationChannel(CHANNEL_LEGACY) }
             nm.createNotificationChannel(
                 NotificationChannel(
-                    CHANNEL_ID,
+                    ENGINE_CHANNEL,
                     getString(R.string.notif_channel),
                     NotificationManager.IMPORTANCE_LOW,
                 ).apply { setShowBadge(false) }
@@ -413,7 +479,7 @@ class BlockVpnService : VpnService() {
         }
 
         val builder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Notification.Builder(this, CHANNEL_ID)
+            Notification.Builder(this, ENGINE_CHANNEL)
         } else {
             @Suppress("DEPRECATION")
             Notification.Builder(this)

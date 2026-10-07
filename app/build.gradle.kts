@@ -20,8 +20,8 @@ android {
         applicationId = "com.anubisproductions.datagate"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1"
+        versionCode = 7
+        versionName = "0.7"
     }
 
     signingConfigs {
@@ -32,6 +32,29 @@ android {
                 keyAlias = keystoreProps.getProperty("keyAlias")
                 keyPassword = keystoreProps.getProperty("keyPassword")
             }
+        }
+    }
+
+    /*
+     * Ship every language in the base APK instead of splitting by language.
+     *
+     * Play's default is to deliver only the language splits matching the device's *system*
+     * locale. That silently breaks the in-app language switcher: a tester whose phone is in
+     * English and who picks Urdu gets the RTL layout and Urdu dates, because the framework
+     * applies the locale, but English strings, because values-ur was never downloaded.
+     *
+     * Measured, not assumed: the same versionCode side-loaded as a universal APK renders full
+     * Urdu on a Samsung, while the Play-delivered bundle renders English on a Pakistani
+     * tester's phone. See FINDINGS.md F16.
+     *
+     * The alternative - requesting the split at runtime through Play Core's
+     * SplitInstallManager - would link a library that talks to Play from inside this process,
+     * and Play Billing was measured to merge INTERNET (KNOWN_ISSUES.md #9). Twelve locales of
+     * strings cost a few tens of kilobytes in a 1.3 MB app. Not a close call.
+     */
+    bundle {
+        language {
+            enableSplit = false
         }
     }
 
@@ -62,7 +85,7 @@ android {
              */
             applicationIdSuffix = ".splashtest"
             versionNameSuffix = "-splashtest"
-            buildConfigField("long", "SPLASH_HOLD_MS", "20000L")
+            buildConfigField("long", "SPLASH_HOLD_MS", "0L")
         }
     }
 

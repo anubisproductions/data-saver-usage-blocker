@@ -3,8 +3,8 @@
     <string name="app_name">موفّر البيانات</string>
 
     <!-- Onboarding -->
-    <string name="onboard_title">إذن واحد فقط، ثم تنتهي</string>
-    <string name="onboard_body">يحتفظ أندرويد بأرقام استهلاك البيانات لكل تطبيق خلف إعداد اسمه «الوصول إلى بيانات الاستخدام». بدونه لا يستطيع هذا التطبيق معرفة التطبيقات التي تستهلك بياناتك.\n\nهو يقرأ عدّادات موجودة أصلًا على هاتفك. لا يُرفع أي شيء — هذا التطبيق لا يملك إذن الإنترنت إطلاقًا.</string>
+    <string name="onboard_title">إذن واحد فقط وينتهي الأمر</string>
+    <string name="onboard_body">يحتفظ أندرويد بأرقام استهلاك البيانات لكل تطبيق خلف إعداد اسمه «الوصول إلى بيانات الاستخدام». بدونه لا يستطيع هذا التطبيق معرفة التطبيقات التي تستهلك بياناتك.\n\nهو يقرأ عدّادات موجودة أصلًا على هاتفك. لا يُرفع أي شيء — هذا التطبيق لا يملك إذن الإنترنت إطلاقًا.\n\nعند تفعيل الحظر، سيقول أندرويد إن الجهاز متصل بالإنترنت عبر هذا التطبيق، وستظهر أيقونة مفتاح. هذه عبارة ثابتة من أندرويد للترشيح المحلي، وتظهر مع كل تطبيق من هذا النوع. لا يُوجّه أي شيء إلى أي مكان — فقائمة الأذونات لا تحوي إذن إنترنت أصلاً.</string>
     <string name="onboard_button">منح الوصول إلى بيانات الاستخدام</string>
     <string name="onboard_hint">ابحث عن «موفّر البيانات» في القائمة وفعّله، ثم عُد إلى هنا.</string>
 
@@ -15,14 +15,14 @@
     <string name="plus_wifi">بالإضافة إلى %1$s عبر الواي فاي</string>
     <string name="since_date">منذ %1$s</string>
     <string name="background_label">استُهلك في الخلفية</string>
-    <string name="background_hint">بيانات أنفقتها هذه التطبيقات من تلقاء نفسها، بينما لم تكن تستخدمها.</string>
-    <string name="saved_label">الموفَّر تقديريًا</string>
+    <string name="background_hint">البيانات التي أنفقتها هذه التطبيقات من تلقاء نفسها وأنت لا تستخدمها — الجوّال والواي فاي معًا.</string>
+    <string name="saved_label">التوفير التقديري</string>
     <string name="saving_on">توفير البيانات مُفعّل</string>
     <string name="saving_off">توفير البيانات مُعطّل</string>
 
-    <string name="restricted">مُقيَّد</string>
-    <string name="protected_app">محمي — يُبقي إشعاراتك تصل</string>
-    <string name="other_apps">أخرى والنظام</string>
+    <string name="restricted">مقيّد</string>
+    <string name="protected_app">محمي — لكي تستمر إشعاراتك في الوصول</string>
+    <string name="other_apps">تطبيقات أخرى والنظام</string>
     <string name="other_hint">بيانات لا ينسبها أندرويد إلى تطبيق بعينه. تُعرض حتى تتطابق هذه الأرقام مع ما تراه في الإعدادات.</string>
 
     <string name="filter_all">الكل</string>
@@ -39,9 +39,9 @@
     <string name="saving_off_with_rules">تم ضبط القواعد لكنها غير مفعّلة — شغّلها لتطبيقها</string>
     <string name="open_blocking">الحظر حسب الشبكة ←</string>
     <string name="blocking_title">الحظر</string>
-    <string name="blocking_hint">اختر الشبكات المسموح لكل تطبيق باستخدامها. مع الباقات المحدودة يكون الجواب عادةً “بدون بيانات الجوّال، والواي فاي مقبول”.</string>
+    <string name="blocking_hint">اختر الشبكات المسموح لكل تطبيق باستخدامها. مع الباقات المحدودة يكون الجواب عادةً «بدون بيانات الجوّال، والواي فاي مقبول».</string>
     <string name="blocking_none">لا شيء محظور</string>
-    <string name="blocking_active">فعّال · واي فاي: %1$d · الجوّال: %2$d</string>
+    <string name="blocking_active">فعّال · واي فاي: %1$s · الجوّال: %2$s</string>
     <string name="blocking_inactive">تم ضبط القواعد لكنها غير مفعّلة — الإذن مطلوب</string>
     <string name="blocked_everywhere">محظور على الواي فاي والجوّال</string>
     <string name="blocked_mobile_only">محظور على الجوّال فقط</string>
@@ -54,9 +54,9 @@
     <string name="mode_label">عندما يحاول تطبيق محظور الاتصال</string>
     <string name="mode_drop">تجاهله (الأهدأ)</string>
     <string name="mode_refuse">ارفضه فورًا</string>
-    <string name="mode_nxdomain">أجب بـ“لا يوجد هذا العنوان” (موصى به)</string>
+    <string name="mode_nxdomain">أجب بـ«لا يوجد هذا العنوان» (موصى به)</string>
     <string name="mode_help_drop">تُهمَل الحزم ويظل التطبيق ينتظر حتى تنتهي مهلته. هذا ما تفعله معظم تطبيقات الحظر.</string>
-    <string name="mode_help_refuse">تُرفض الاتصالات فورًا. بالقياس على بيانات حقيقية جعل هذا التطبيقات تعيد المحاولة أسرع وبنحو 40%% أكثر، لذا ليس هو الخيار الافتراضي.</string>
+    <string name="mode_help_refuse">تُرفض الاتصالات فورًا. بالقياس على بيانات حقيقية جعل هذا التطبيقات تعيد المحاولة أسرع وبنحو ⁨40%%⁩ أكثر، لذا ليس هو الخيار الافتراضي.</string>
     <string name="mode_help_nxdomain">يحصل البحث عن الأسماء على إجابة سلبية حقيقية بدلًا من الصمت. سجّل أقل حركة إعادة محاولة بين الثلاثة.</string>
     <string name="row_restricted_saved">%1$s · وُفّر ~%2$s</string>
     <string name="row_usage">%1$s على الجوّال · %2$s في الخلفية</string>
@@ -86,6 +86,25 @@
     <string name="usage_handoff_title">ستغادر هذا التطبيق الآن</string>
     <string name="usage_handoff_body">يحفظ أندرويد أرقام استهلاك كل تطبيق خلف إعداد في النظام، لذا فالشاشة التالية هي الإعدادات وليست هذا التطبيق.
 
-ابحث عن “%1$s” في القائمة وشغّله، ثم اضغط رجوع للعودة إلى هنا. لا حاجة لتغيير أي شيء آخر في تلك الشاشة.</string>
+ابحث عن «%1$s» في القائمة وشغّله، ثم اضغط رجوع للعودة إلى هنا. لا حاجة لتغيير أي شيء آخر في تلك الشاشة.</string>
     <string name="usage_handoff_go">فتح الإعدادات</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="settings_language">اللغة</string>
+    <string name="settings_check_update">التحقق من التحديثات</string>
+    <string name="language_system">لغة الهاتف</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">لم يُقيّد أي تطبيق بعد</string>
+    <string name="banner_none_body">اختر تطبيقًا من القائمة لمنعه من استهلاك بيانات الجوّال، أو قيّد أكثر التطبيقات استهلاكًا في الخلفية بلمسة واحدة.</string>
+    <string name="banner_none_action">تقييد الأكثر استهلاكًا</string>
+    <string name="banner_off_title">الحظر مُوقّف</string>
+    <string name="banner_off_body">قواعدك محفوظة، لكن لا يجري تطبيق أي منها بعد. فعّل الحظر لتبدأ التوفير.</string>
+    <string name="banner_off_action">تفعيل الحظر</string>
+    <string name="banner_silent_title">الحظر يعمل، لكن بلا إشعار</string>
+    <string name="banner_silent_body">الإشعارات مُعطّلة، لذلك لا يوجد في شريط الحالة ما يدل على أن الحظر نشط.</string>
+    <string name="banner_silent_action">تفعيل الإشعارات</string>
+    <string name="empty_no_match">لا يوجد تطبيق يطابق “%1$s”.</string>
+    <string name="empty_filter">لا توجد تطبيقات تطابق هذا المُرشّح.\nجرّب “الكل” لعرض جميع التطبيقات.</string>
+
+    <string name="settings_notification">إعدادات الإشعار</string>
 </resources>

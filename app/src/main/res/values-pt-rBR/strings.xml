@@ -3,7 +3,7 @@
     <string name="app_name">Economia de dados</string>
 
     <string name="onboard_title">Uma permissão e pronto</string>
-    <string name="onboard_body">O Android guarda o consumo de dados de cada aplicativo atrás de uma configuração chamada «Acesso de uso». Sem ela, este aplicativo não consegue ver quais apps estão gastando seus dados.\n\nEle lê contadores que já existem no seu celular. Nada é enviado — este aplicativo não tem nenhuma permissão de internet.</string>
+    <string name="onboard_body">O Android guarda o consumo de dados de cada aplicativo atrás de uma configuração chamada «Acesso de uso». Sem ela, este aplicativo não consegue ver quais apps estão gastando seus dados.\n\nEle lê contadores que já existem no seu celular. Nada é enviado — este aplicativo não tem nenhuma permissão de internet.\n\nAo ativar o bloqueio, o Android dirá que este aparelho está conectado à internet pelo Data Saver e mostrará um ícone de chave. Esse é o texto fixo do Android para a filtragem local e aparece em qualquer aplicativo desse tipo. Nada é roteado — a lista de permissões não tem permissão de internet.</string>
     <string name="onboard_button">Conceder acesso de uso</string>
     <string name="onboard_hint">Encontre «Economia de dados» na lista, ative e volte aqui.</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">mais %1$s no Wi‑Fi</string>
     <string name="since_date">desde %1$s</string>
     <string name="background_label">Usado em segundo plano</string>
-    <string name="background_hint">Dados que estes apps gastaram sozinhos, enquanto você não os usava.</string>
+    <string name="background_hint">Dados que esses aplicativos gastaram sozinhos, enquanto você não os usava — móveis e Wi‑Fi somados.</string>
     <string name="saved_label">Economia estimada</string>
     <string name="saving_on">Economia de dados ativada</string>
     <string name="saving_off">Economia de dados desativada</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">Bloqueio</string>
     <string name="blocking_hint">Escolha quais redes cada app pode usar. Em um pacote limitado, a resposta comum é “sem dados móveis, Wi‑Fi tudo bem”.</string>
     <string name="blocking_none">Nada bloqueado</string>
-    <string name="blocking_active">Ativo · Wi‑Fi: %1$d · Dados móveis: %2$d</string>
+    <string name="blocking_active">Ativo · Wi‑Fi: %1$s · Dados móveis: %2$s</string>
     <string name="blocking_inactive">Regras definidas, mas inativas — é necessária permissão</string>
     <string name="blocked_everywhere">Bloqueado no Wi‑Fi e nos dados móveis</string>
     <string name="blocked_mobile_only">Bloqueado apenas nos dados móveis</string>
@@ -78,4 +78,23 @@
 
 Procure “%1$s” na lista e ative, depois toque em Voltar para retornar aqui. Nada mais precisa ser mudado nessa tela.</string>
     <string name="usage_handoff_go">Abrir Configurações</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_check_update">Verificar atualizações</string>
+    <string name="language_system">Idioma do celular</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Nada foi restringido ainda</string>
+    <string name="banner_none_body">Escolha um aplicativo abaixo para impedir que use dados móveis, ou restrinja os maiores consumidores em segundo plano com um toque.</string>
+    <string name="banner_none_action">Restringir os maiores consumidores</string>
+    <string name="banner_off_title">O bloqueio está desativado</string>
+    <string name="banner_off_body">Suas regras estão salvas, mas ainda não estão em vigor. Ative o bloqueio para começar a economizar.</string>
+    <string name="banner_off_action">Ativar o bloqueio</string>
+    <string name="banner_silent_title">O bloqueio está ativo, mas silencioso</string>
+    <string name="banner_silent_body">As notificações estão desativadas, então nada na barra de status mostra que o bloqueio está funcionando.</string>
+    <string name="banner_silent_action">Ativar notificações</string>
+    <string name="empty_no_match">Nenhum aplicativo corresponde a “%1$s”.</string>
+    <string name="empty_filter">Nenhum aplicativo corresponde a este filtro.\nExperimente “Todos” para ver todos eles.</string>
+
+    <string name="settings_notification">Configurações de notificação</string>
 </resources>

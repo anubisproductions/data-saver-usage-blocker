@@ -1,6 +1,7 @@
 package com.anubisproductions.datagate
 
 import android.content.Context
+import android.os.SystemClock
 
 /**
  * The bundle, the cycle, and the savings ledger.
@@ -56,6 +57,7 @@ object Budget {
      * that time invented savings the app never made.
      */
     fun engineStarted(ctx: Context, pkgs: Collection<String>) {
+        reconcile(ctx, pkgs)
         val now = System.currentTimeMillis()
         val p = prefs(ctx)
         val e = p.edit()
@@ -81,6 +83,49 @@ object Budget {
             }
         }
         e.apply()
+    }
+
+    /**
+     * Wall-clock time the device last booted.
+     *
+     * `elapsedRealtime` counts from boot and keeps counting in sleep, so subtracting it from
+     * the current time gives the moment the device came up. Cheap, and it needs no permission.
+     */
+    private fun bootTime(): Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
+
+    /**
+     * Close any enforcement window left open by a process that died without saying so.
+     *
+     * [engineStopped] banks the open window, but it only runs if something calls it. A reboot
+     * does not: the process is killed outright, the window stays open, and every later read of
+     * [enforcedMs] adds the whole time since - including hours when the phone was off and
+     * nothing was being enforced at all. The savings figure then climbs on its own, which is
+     * `KNOWN_ISSUES` #5, and the same open window is why the figure looked wrong across a
+     * reboot in `FINDINGS.md` F8.
+     *
+     * The window is banked up to the **boot** rather than to now, because that is the last
+     * moment enforcement was genuinely happening. Anything after it belongs to a new window,
+     * opened only when the engine actually comes back.
+     *
+     * Safe to call repeatedly: a window opened since the last boot is left alone.
+     */
+    fun reconcile(ctx: Context, pkgs: Collection<String>) {
+        val boot = bootTime()
+        val p = prefs(ctx)
+        val e = p.edit()
+        var changed = false
+        for (pkg in pkgs) {
+            val start = p.getLong(PREFIX_SEGMENT_START + pkg, 0L)
+            if (start != 0L && start < boot) {
+                e.putLong(
+                    PREFIX_ENFORCED_MS + pkg,
+                    p.getLong(PREFIX_ENFORCED_MS + pkg, 0L) + (boot - start),
+                )
+                e.putLong(PREFIX_SEGMENT_START + pkg, 0L)
+                changed = true
+            }
+        }
+        if (changed) e.apply()
     }
 
     /** Banked enforcement time plus whatever the currently open window has accrued. */

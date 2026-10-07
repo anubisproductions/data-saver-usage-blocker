@@ -4,6 +4,7 @@ import android.app.AppOpsManager
 import android.app.usage.NetworkStats
 import android.app.usage.NetworkStatsManager
 import android.content.Context
+import androidx.core.text.BidiFormatter
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
@@ -209,7 +210,22 @@ object UsageRepository {
         return total
     }
 
-    fun formatBytes(b: Long): String = when {
+    /**
+     * A measurement, ready to drop into translated text.
+     *
+     * The unicodeWrap is not decoration. "128.5 MB" is a left-to-right run, and Arabic and
+     * Urdu strings interpolate two of them either side of a middot: "%1$s على الجوّال ·
+     * %2$s في الخلفية". Without isolation the bidi algorithm reorders the neutrals between
+     * them, the unit detaches from its number, and the two figures end up adjacent with a
+     * single orphaned "MB" floating between the labels - on the one screen whose purpose is
+     * telling mobile and background apart. Observed on device before this was added.
+     *
+     * Every caller is UI, so the isolate belongs here rather than at twelve call sites.
+     */
+    fun formatBytes(b: Long): String = BidiFormatter.getInstance().unicodeWrap(rawBytes(b))
+
+    /** The same figure without bidi isolation, for logs and anything non-visual. */
+    fun rawBytes(b: Long): String = when {
         b >= 1_073_741_824L -> "%.2f GB".format(b / 1_073_741_824.0)
         b >= 1_048_576L -> "%.1f MB".format(b / 1_048_576.0)
         b >= 1024L -> "%.0f KB".format(b / 1024.0)

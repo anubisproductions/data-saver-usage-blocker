@@ -3,7 +3,7 @@
 <resources>
     <string name="app_name">Poupança de dados</string>
     <string name="onboard_title">Uma permissão e está feito</string>
-    <string name="onboard_body">O Android mantém os valores de dados por aplicação atrás de uma definição chamada Acesso à utilização. Sem ela, esta aplicação não consegue ver que aplicações estão a gastar os seus dados.\n\nLê contadores que já existem no seu telemóvel. Nada é enviado — esta aplicação não tem qualquer permissão de Internet.</string>
+    <string name="onboard_body">O Android mantém os valores de dados por aplicação atrás de uma definição chamada Acesso à utilização. Sem ela, esta aplicação não consegue ver que aplicações estão a gastar os seus dados.\n\nLê contadores que já existem no seu telemóvel. Nada é enviado — esta aplicação não tem qualquer permissão de Internet.\n\nAo ativar o bloqueio, o Android dirá que este aparelho está ligado à internet através do Data Saver e mostrará um ícone de chave. É o texto fixo do Android para a filtragem local e aparece em qualquer aplicação deste tipo. Nada é encaminhado — a lista de permissões não tem permissão de internet.</string>
     <string name="onboard_button">Conceder Acesso à utilização</string>
     <string name="onboard_hint">Encontre “Poupança de dados” na lista, ative-a e volte aqui.</string>
     <string name="cycle_label">Dados móveis neste ciclo</string>
@@ -12,7 +12,7 @@
     <string name="plus_wifi">mais %1$s por Wi‑Fi</string>
     <string name="since_date">desde %1$s</string>
     <string name="background_label">Usado em segundo plano</string>
-    <string name="background_hint">Dados que estas aplicações gastaram sozinhas, enquanto não as estava a utilizar.</string>
+    <string name="background_hint">Dados que estas aplicações gastaram sozinhas, enquanto não as usava — móveis e Wi‑Fi somados.</string>
     <string name="saved_label">Poupança estimada</string>
     <string name="saving_on">A poupança de dados está ativa</string>
     <string name="saving_off">A poupança de dados está desativada</string>
@@ -32,7 +32,7 @@
     <string name="blocking_title">Bloqueio</string>
     <string name="blocking_hint">Escolha que redes cada aplicação pode usar. Num pacote limitado, a resposta habitual é “sem dados móveis, Wi‑Fi tudo bem”.</string>
     <string name="blocking_none">Nada bloqueado</string>
-    <string name="blocking_active">Ativo · Wi‑Fi: %1$d · Dados móveis: %2$d</string>
+    <string name="blocking_active">Ativo · Wi‑Fi: %1$s · Dados móveis: %2$s</string>
     <string name="blocking_inactive">Regras definidas, mas inativas — é necessária permissão</string>
     <string name="blocked_everywhere">Bloqueada em Wi‑Fi e dados móveis</string>
     <string name="blocked_mobile_only">Bloqueada apenas em dados móveis</string>
@@ -74,4 +74,23 @@
 
 Procure “%1$s” na lista e ative, depois toque em Voltar para regressar aqui. Não é preciso alterar mais nada nesse ecrã.</string>
     <string name="usage_handoff_go">Abrir Definições</string>
+    <string name="menu_settings">Definições</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_check_update">Procurar atualizações</string>
+    <string name="language_system">Idioma do telemóvel</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Ainda não há nada restringido</string>
+    <string name="banner_none_body">Escolha uma aplicação abaixo para a impedir de usar dados móveis, ou restrinja os maiores consumidores em segundo plano com um toque.</string>
+    <string name="banner_none_action">Restringir os maiores consumidores</string>
+    <string name="banner_off_title">O bloqueio está desativado</string>
+    <string name="banner_off_body">As suas regras estão guardadas, mas ainda não são aplicadas. Ative o bloqueio para começar a poupar.</string>
+    <string name="banner_off_action">Ativar o bloqueio</string>
+    <string name="banner_silent_title">O bloqueio está ativo, mas silencioso</string>
+    <string name="banner_silent_body">As notificações estão desativadas, por isso nada na barra de estado mostra que o bloqueio está a funcionar.</string>
+    <string name="banner_silent_action">Ativar notificações</string>
+    <string name="empty_no_match">Nenhuma aplicação corresponde a “%1$s”.</string>
+    <string name="empty_filter">Nenhuma aplicação corresponde a este filtro.\nExperimente “Todas” para as ver todas.</string>
+
+    <string name="settings_notification">Definições de notificação</string>
 </resources>

@@ -3,7 +3,7 @@
     <string name="app_name">Penghemat Kuota</string>
 
     <string name="onboard_title">Satu izin saja, lalu selesai</string>
-    <string name="onboard_body">Android menyimpan angka pemakaian data tiap aplikasi di balik setelan bernama «Akses penggunaan». Tanpa itu, aplikasi ini tidak bisa melihat aplikasi mana yang menghabiskan kuota Anda.\n\nAplikasi ini membaca penghitung yang sudah ada di ponsel Anda. Tidak ada yang diunggah — aplikasi ini sama sekali tidak punya izin internet.</string>
+    <string name="onboard_body">Android menyimpan angka pemakaian data tiap aplikasi di balik setelan bernama «Akses penggunaan». Tanpa itu, aplikasi ini tidak bisa melihat aplikasi mana yang menghabiskan kuota Anda.\n\nAplikasi ini membaca penghitung yang sudah ada di ponsel Anda. Tidak ada yang diunggah — aplikasi ini sama sekali tidak punya izin internet.\n\nSaat Anda mengaktifkan pemblokiran, Android akan menyatakan perangkat ini terhubung ke internet melalui Data Saver dan menampilkan ikon kunci. Itu kalimat baku Android untuk penyaringan lokal, dan muncul pada setiap aplikasi sejenis. Tidak ada yang diteruskan ke mana pun — daftar izin tidak memuat izin internet.</string>
     <string name="onboard_button">Beri akses penggunaan</string>
     <string name="onboard_hint">Cari «Penghemat Kuota» di daftar, aktifkan, lalu kembali ke sini.</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">ditambah %1$s lewat Wi‑Fi</string>
     <string name="since_date">sejak %1$s</string>
     <string name="background_label">Terpakai di latar belakang</string>
-    <string name="background_hint">Kuota yang dihabiskan aplikasi ini sendiri, saat Anda tidak memakainya.</string>
+    <string name="background_hint">Data yang dipakai aplikasi ini sendiri saat Anda tidak menggunakannya — seluler dan Wi‑Fi digabung.</string>
     <string name="saved_label">Perkiraan hemat</string>
     <string name="saving_on">Penghematan kuota aktif</string>
     <string name="saving_off">Penghematan kuota nonaktif</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">Pemblokiran</string>
     <string name="blocking_hint">Pilih jaringan mana yang boleh dipakai tiap aplikasi. Pada kuota terbatas, jawaban yang biasa adalah “tanpa data seluler, Wi‑Fi tidak masalah”.</string>
     <string name="blocking_none">Tidak ada yang diblokir</string>
-    <string name="blocking_active">Aktif · Wi‑Fi: %1$d · Seluler: %2$d</string>
+    <string name="blocking_active">Aktif · Wi‑Fi: %1$s · Seluler: %2$s</string>
     <string name="blocking_inactive">Aturan tersimpan, tetapi belum aktif — izin diperlukan</string>
     <string name="blocked_everywhere">Diblokir di Wi‑Fi dan seluler</string>
     <string name="blocked_mobile_only">Diblokir hanya di data seluler</string>
@@ -76,4 +76,23 @@
 
 Cari “%1$s” di daftar lalu nyalakan, kemudian tekan Kembali untuk kembali ke sini. Tidak ada lagi yang perlu diubah di sana.</string>
     <string name="usage_handoff_go">Buka Setelan</string>
+    <string name="menu_settings">Setelan</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_check_update">Periksa pembaruan</string>
+    <string name="language_system">Bahasa ponsel</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Belum ada yang dibatasi</string>
+    <string name="banner_none_body">Pilih aplikasi di bawah agar berhenti memakai data seluler, atau batasi pemakai latar belakang terbesar dengan satu ketukan.</string>
+    <string name="banner_none_action">Batasi pemakai terbesar</string>
+    <string name="banner_off_title">Pemblokiran nonaktif</string>
+    <string name="banner_off_body">Aturan Anda tersimpan, tetapi belum diterapkan. Aktifkan pemblokiran untuk mulai berhemat.</string>
+    <string name="banner_off_action">Aktifkan pemblokiran</string>
+    <string name="banner_silent_title">Pemblokiran aktif, tetapi senyap</string>
+    <string name="banner_silent_body">Notifikasi dinonaktifkan, sehingga tidak ada tanda di bilah status bahwa pemblokiran sedang berjalan.</string>
+    <string name="banner_silent_action">Aktifkan notifikasi</string>
+    <string name="empty_no_match">Tidak ada aplikasi yang cocok dengan “%1$s”.</string>
+    <string name="empty_filter">Tidak ada aplikasi yang cocok dengan filter ini.\nCoba “Semua” untuk melihat seluruh aplikasi.</string>
+
+    <string name="settings_notification">Setelan notifikasi</string>
 </resources>

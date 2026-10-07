@@ -3,7 +3,7 @@
 <resources>
     <string name="app_name">Datensparen</string>
     <string name="onboard_title">Eine Berechtigung, dann ist es erledigt</string>
-    <string name="onboard_body">Android hält die Datenwerte pro App hinter einer Einstellung namens Nutzungszugriff. Ohne sie kann diese App nicht sehen, welche Apps Ihre Daten verbrauchen.\n\nSie liest Zähler, die ohnehin schon auf Ihrem Telefon liegen. Nichts wird hochgeladen — diese App hat überhaupt keine Internetberechtigung.</string>
+    <string name="onboard_body">Android hält die Datenwerte pro App hinter einer Einstellung namens Nutzungszugriff. Ohne sie kann diese App nicht sehen, welche Apps Ihre Daten verbrauchen.\n\nSie liest Zähler, die ohnehin schon auf Ihrem Telefon liegen. Nichts wird hochgeladen — diese App hat überhaupt keine Internetberechtigung.\n\nWenn Sie die Sperrung einschalten, meldet Android, dass dieses Gerät über Data Saver mit dem Internet verbunden ist, und zeigt ein Schlüsselsymbol. Das ist Androids feste Formulierung für die lokale Filterung und erscheint bei jeder App dieser Art. Es wird nichts weitergeleitet — in der Berechtigungsliste steht keine Internetberechtigung.</string>
     <string name="onboard_button">Nutzungszugriff erteilen</string>
     <string name="onboard_hint">Suchen Sie „Datensparen“ in der Liste, schalten Sie es ein und kommen Sie zurück.</string>
     <string name="cycle_label">Mobile Daten in diesem Zyklus</string>
@@ -12,7 +12,7 @@
     <string name="plus_wifi">plus %1$s über WLAN</string>
     <string name="since_date">seit %1$s</string>
     <string name="background_label">Im Hintergrund verbraucht</string>
-    <string name="background_hint">Daten, die diese Apps von sich aus verbraucht haben, während Sie sie nicht benutzt haben.</string>
+    <string name="background_hint">Daten, die diese Apps von sich aus verbraucht haben, während Sie sie nicht benutzt haben — Mobilfunk und WLAN zusammen.</string>
     <string name="saved_label">Geschätzt gespart</string>
     <string name="saving_on">Datensparen ist ein</string>
     <string name="saving_off">Datensparen ist aus</string>
@@ -32,7 +32,7 @@
     <string name="blocking_title">Blockieren</string>
     <string name="blocking_hint">Wählen Sie, welche Netzwerke jede App nutzen darf. Bei einem begrenzten Paket lautet die übliche Antwort „keine mobilen Daten, WLAN ist in Ordnung“.</string>
     <string name="blocking_none">Nichts blockiert</string>
-    <string name="blocking_active">Aktiv · WLAN: %1$d · Mobil: %2$d</string>
+    <string name="blocking_active">Aktiv · WLAN: %1$s · Mobil: %2$s</string>
     <string name="blocking_inactive">Regeln gesetzt, aber nicht aktiv — eine Berechtigung ist erforderlich</string>
     <string name="blocked_everywhere">Im WLAN und mobil blockiert</string>
     <string name="blocked_mobile_only">Nur mobil blockiert</string>
@@ -74,4 +74,23 @@
 
 Suchen Sie „%1$s“ in der Liste und schalten Sie es ein, dann kehren Sie mit Zurück hierher zurück. Sonst muss dort nichts geändert werden.</string>
     <string name="usage_handoff_go">Einstellungen öffnen</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_check_update">Nach Updates suchen</string>
+    <string name="language_system">Telefonsprache</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Noch nichts eingeschränkt</string>
+    <string name="banner_none_body">Wählen Sie unten eine App aus, um ihre mobile Datennutzung zu stoppen, oder schränken Sie die größten Hintergrundnutzer mit einem Tippen ein.</string>
+    <string name="banner_none_action">Größte Verbraucher einschränken</string>
+    <string name="banner_off_title">Sperrung ist aus</string>
+    <string name="banner_off_body">Ihre Regeln sind gespeichert, werden aber noch nicht durchgesetzt. Schalten Sie die Sperrung ein, um zu sparen.</string>
+    <string name="banner_off_action">Sperrung einschalten</string>
+    <string name="banner_silent_title">Sperrung läuft, aber lautlos</string>
+    <string name="banner_silent_body">Benachrichtigungen sind deaktiviert, daher zeigt nichts in der Statusleiste an, dass die Sperrung aktiv ist.</string>
+    <string name="banner_silent_action">Benachrichtigungen einschalten</string>
+    <string name="empty_no_match">Keine App passt zu „%1$s“.</string>
+    <string name="empty_filter">Keine Apps passen zu diesem Filter.\nProbieren Sie „Alle“, um jede App zu sehen.</string>
+
+    <string name="settings_notification">Benachrichtigungseinstellungen</string>
 </resources>

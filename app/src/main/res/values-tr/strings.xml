@@ -3,7 +3,7 @@
     <string name="app_name">Veri Tasarrufu</string>
 
     <string name="onboard_title">Tek bir izin, hepsi bu</string>
-    <string name="onboard_body">Android, uygulama başına veri kullanım rakamlarını «Kullanım erişimi» adlı bir ayarın arkasında tutar. Bu izin olmadan bu uygulama hangi uygulamaların verinizi harcadığını göremez.\n\nTelefonunuzda zaten bulunan sayaçları okur. Hiçbir şey yüklenmez — bu uygulamanın internet izni hiç yok.</string>
+    <string name="onboard_body">Android, uygulama başına veri kullanım rakamlarını «Kullanım erişimi» adlı bir ayarın arkasında tutar. Bu izin olmadan bu uygulama hangi uygulamaların verinizi harcadığını göremez.\n\nTelefonunuzda zaten bulunan sayaçları okur. Hiçbir şey yüklenmez — bu uygulamanın internet izni hiç yok.\n\nEngellemeyi açtığınızda Android, bu cihazın Data Saver üzerinden internete bağlandığını söyler ve bir anahtar simgesi gösterir. Bu, yerel filtreleme için Android’in değişmez ifadesidir ve bu türden her uygulamada çıkar. Hiçbir şey bir yere yönlendirilmez — izin listesinde internet izni yoktur.</string>
     <string name="onboard_button">Kullanım erişimi ver</string>
     <string name="onboard_hint">Listede «Veri Tasarrufu»nu bulun, açın ve buraya dönün.</string>
 
@@ -13,7 +13,7 @@
     <string name="plus_wifi">ayrıca Wi‑Fi üzerinden %1$s</string>
     <string name="since_date">%1$s tarihinden beri</string>
     <string name="background_label">Arka planda kullanılan</string>
-    <string name="background_hint">Bu uygulamaların siz kullanmazken kendi başlarına harcadığı veri.</string>
+    <string name="background_hint">Bu uygulamaların siz kullanmazken kendiliğinden harcadığı veri — mobil ve Wi‑Fi birlikte.</string>
     <string name="saved_label">Tahmini tasarruf</string>
     <string name="saving_on">Veri tasarrufu açık</string>
     <string name="saving_off">Veri tasarrufu kapalı</string>
@@ -39,7 +39,7 @@
     <string name="blocking_title">Engelleme</string>
     <string name="blocking_hint">Her uygulamanın hangi ağları kullanabileceğini seçin. Sınırlı bir pakette olağan yanıt şudur: “mobil veri yok, Wi‑Fi sorun değil”.</string>
     <string name="blocking_none">Hiçbir şey engellenmedi</string>
-    <string name="blocking_active">Etkin · Wi‑Fi: %1$d · Mobil: %2$d</string>
+    <string name="blocking_active">Etkin · Wi‑Fi: %1$s · Mobil: %2$s</string>
     <string name="blocking_inactive">Kurallar ayarlandı ama etkin değil — izin gerekiyor</string>
     <string name="blocked_everywhere">Wi‑Fi ve mobil veride engellendi</string>
     <string name="blocked_mobile_only">Yalnızca mobil veride engellendi</string>
@@ -76,4 +76,23 @@
 
 Listede “%1$s” öğesini bulup açın, sonra Geri’ye basarak buraya dönün. O ekranda başka bir şey değiştirmeniz gerekmez.</string>
     <string name="usage_handoff_go">Ayarları aç</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="settings_language">Dil</string>
+    <string name="settings_check_update">Güncellemeleri denetle</string>
+    <string name="language_system">Telefon dili</string>
+
+    <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
+    <string name="banner_none_title">Henüz hiçbir şey kısıtlanmadı</string>
+    <string name="banner_none_body">Aşağıdan bir uygulama seçerek mobil veri kullanmasını engelleyin ya da arka planda en çok harcayanları tek dokunuşla kısıtlayın.</string>
+    <string name="banner_none_action">En çok harcayanları kısıtla</string>
+    <string name="banner_off_title">Engelleme kapalı</string>
+    <string name="banner_off_body">Kurallarınız kaydedildi ama henüz uygulanmıyor. Tasarrufa başlamak için engellemeyi açın.</string>
+    <string name="banner_off_action">Engellemeyi aç</string>
+    <string name="banner_silent_title">Engelleme açık ama sessiz</string>
+    <string name="banner_silent_body">Bildirimler kapalı olduğu için durum çubuğunda engellemenin çalıştığını gösteren bir şey yok.</string>
+    <string name="banner_silent_action">Bildirimleri aç</string>
+    <string name="empty_no_match">“%1$s” ile eşleşen uygulama yok.</string>
+    <string name="empty_filter">Bu filtreyle eşleşen uygulama yok.\nTümünü görmek için “Tümü” seçeneğini deneyin.</string>
+
+    <string name="settings_notification">Bildirim ayarları</string>
 </resources>
