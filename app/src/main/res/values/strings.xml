@@ -80,9 +80,7 @@
     <string name="rate_later">Not now</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_save">Save</string>
-    <string name="restrict_bulk_message">These spent the most data in the background this cycle — %1$s between them:
-
-%2$s</string>
+    <string name="restrict_bulk_message">These spent the most data in the background this cycle — %1$s between them:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Restrict</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">Restrict %1$d app?</item>

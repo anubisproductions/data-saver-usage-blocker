@@ -68,9 +68,7 @@
     <string name="rate_later">ابھی نہیں</string>
     <string name="action_cancel">منسوخ کریں</string>
     <string name="action_save">محفوظ کریں</string>
-    <string name="restrict_bulk_message">اس سائکل میں پس منظر میں سب سے زیادہ ڈیٹا ان ایپس نے خرچ کیا — کل %1$s:
-
-%2$s</string>
+    <string name="restrict_bulk_message">اس سائکل میں پس منظر میں سب سے زیادہ ڈیٹا ان ایپس نے خرچ کیا — کل %1$s:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">محدود کریں</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">%1$d ایپ محدود کریں؟</item>

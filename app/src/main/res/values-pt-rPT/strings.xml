@@ -68,9 +68,7 @@
     <string name="rate_later">Agora não</string>
     <string name="action_cancel">Cancelar</string>
     <string name="action_save">Guardar</string>
-    <string name="restrict_bulk_message">Estas gastaram mais dados em segundo plano neste ciclo — %1$s no total:
-
-%2$s</string>
+    <string name="restrict_bulk_message">Estas gastaram mais dados em segundo plano neste ciclo — %1$s no total:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Restringir</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">Restringir %1$d aplicação?</item>

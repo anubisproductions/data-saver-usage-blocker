@@ -72,9 +72,7 @@
     <string name="rate_later">Не сейчас</string>
     <string name="action_cancel">Отмена</string>
     <string name="action_save">Сохранить</string>
-    <string name="restrict_bulk_message">Эти приложения израсходовали больше всего данных в фоне за цикл — %1$s в сумме:
-
-%2$s</string>
+    <string name="restrict_bulk_message">Эти приложения израсходовали больше всего данных в фоне за цикл — %1$s в сумме:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Ограничить</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">Ограничить %1$d приложение?</item>

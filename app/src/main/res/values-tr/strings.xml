@@ -72,9 +72,7 @@
     <string name="rate_later">Şimdi değil</string>
     <string name="action_cancel">İptal</string>
     <string name="action_save">Kaydet</string>
-    <string name="restrict_bulk_message">Bu döngüde arka planda en çok veriyi bunlar harcadı — toplam %1$s:
-
-%2$s</string>
+    <string name="restrict_bulk_message">Bu döngüde arka planda en çok veriyi bunlar harcadı — toplam %1$s:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Kısıtla</string>
     <plurals name="restrict_bulk_title">
         <item quantity="other">%1$d uygulama kısıtlansın mı?</item>

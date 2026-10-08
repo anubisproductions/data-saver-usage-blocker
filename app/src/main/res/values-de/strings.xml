@@ -68,9 +68,7 @@
     <string name="rate_later">Später</string>
     <string name="action_cancel">Abbrechen</string>
     <string name="action_save">Speichern</string>
-    <string name="restrict_bulk_message">Diese haben in diesem Zyklus im Hintergrund die meisten Daten verbraucht — %1$s zusammen:
-
-%2$s</string>
+    <string name="restrict_bulk_message">Diese haben in diesem Zyklus im Hintergrund die meisten Daten verbraucht — %1$s zusammen:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Einschränken</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">%1$d App einschränken?</item>

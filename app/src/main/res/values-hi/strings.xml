@@ -72,9 +72,7 @@
     <string name="rate_later">अभी नहीं</string>
     <string name="action_cancel">रद्द करें</string>
     <string name="action_save">सेव करें</string>
-    <string name="restrict_bulk_message">इस साइकल में बैकग्राउंड में सबसे ज़्यादा डेटा इन्होंने खर्च किया — कुल %1$s:
-
-%2$s</string>
+    <string name="restrict_bulk_message">इस साइकल में बैकग्राउंड में सबसे ज़्यादा डेटा इन्होंने खर्च किया — कुल %1$s:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">रोकें</string>
     <plurals name="restrict_bulk_title">
         <item quantity="one">%1$d ऐप रोकें?</item>

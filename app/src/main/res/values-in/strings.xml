@@ -72,9 +72,7 @@
     <string name="rate_later">Nanti saja</string>
     <string name="action_cancel">Batal</string>
     <string name="action_save">Simpan</string>
-    <string name="restrict_bulk_message">Ini yang paling banyak memakai data di latar belakang pada siklus ini — total %1$s:
-
-%2$s</string>
+    <string name="restrict_bulk_message">Ini yang paling banyak memakai data di latar belakang pada siklus ini — total %1$s:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">Batasi</string>
     <plurals name="restrict_bulk_title">
         <item quantity="other">Batasi %1$d aplikasi?</item>

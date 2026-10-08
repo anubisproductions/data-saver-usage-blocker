@@ -74,9 +74,7 @@
     <string name="rate_later">ليس الآن</string>
     <string name="action_cancel">إلغاء</string>
     <string name="action_save">حفظ</string>
-    <string name="restrict_bulk_message">هذه التطبيقات استهلكت أكبر قدر من البيانات في الخلفية خلال هذه الدورة — %1$s بينها:
-
-%2$s</string>
+    <string name="restrict_bulk_message">هذه التطبيقات استهلكت أكبر قدر من البيانات في الخلفية خلال هذه الدورة — %1$s بينها:\n\n%2$s</string>
     <string name="restrict_bulk_confirm">تقييد</string>
     <plurals name="restrict_bulk_title">
         <item quantity="zero">لا تطبيقات لتقييدها؟</item>
