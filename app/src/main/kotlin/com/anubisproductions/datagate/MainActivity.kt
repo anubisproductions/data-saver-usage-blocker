@@ -54,26 +54,33 @@ class MainActivity : Activity() {
         super.attachBaseContext(LocalePrefs.wrap(newBase))
 
     private companion object {
-        /**
-         * How much the app must have saved before it asks for a rating.
-         *
-         * The app shipped with no public ratings at all, which costs ranking and conversion
-         * together, and each makes the other worse. The fix is to ask - but only once the
-         * question is a fair one. Ten megabytes is roughly the point where the figure stops
-         * being a rounding error and starts being a reason someone would recommend this.
-         *
-         * Never on launch, never on a timer: at that point the user has been given nothing
-         * and the prompt is just noise that earns one star.
-         */
         const val SOURCE_URL = "https://github.com/anubisproductions/data-saver-usage-blocker"
 
-        const val REVIEW_AFTER_SAVED_BYTES = 10L * 1_048_576L
+        /**
+         * How long someone must have been *using* the app before it asks for a rating.
+         *
+         * Using means blocking is on and working, not that the app is installed: the clock
+         * starts at the first render with the engine running, because that is the first
+         * moment the app has done anything for them.
+         *
+         * The first version gated on megabytes saved alone, which on a phone with a heavy
+         * background app is reached in about two hours - so the prompt would land on day one,
+         * from someone who has not yet decided anything about it. A week is the point where
+         * they have kept it, which is the thing a rating is actually about.
+         */
+        private const val REVIEW_AFTER_DAYS = 7L
+        private const val REVIEW_AFTER_MS = REVIEW_AFTER_DAYS * 24L * 60L * 60L * 1000L
+
+        /** A floor, so the dialog never quotes a figure too small to be worth reading. */
+        const val REVIEW_MIN_SAVED_BYTES = 1L * 1_048_576L
+
+        /** How long "not now" lasts. */
+        private const val REVIEW_SNOOZE_MS = 30L * 24L * 60L * 60L * 1000L
+
         private const val REVIEW_PREFS = "datagate_review"
         private const val KEY_REVIEW_ASKED = "asked"
-        private const val KEY_REVIEW_SNOOZED_AT = "snoozed_at"
-
-        /** How much further the app must save before a "not now" is asked again. */
-        private const val REVIEW_SNOOZE_FACTOR = 10
+        private const val KEY_REVIEW_FIRST_SEEN = "first_seen"
+        private const val KEY_REVIEW_SNOOZED_UNTIL = "snoozed_until"
 
         const val REQUEST_CONSENT = 1
         const val REQUEST_NOTIFY = 2
@@ -445,10 +452,17 @@ class MainActivity : Activity() {
         val prefs = getSharedPreferences(REVIEW_PREFS, Context.MODE_PRIVATE)
         if (prefs.getBoolean(KEY_REVIEW_ASKED, false)) return
 
-        val snoozedAt = prefs.getLong(KEY_REVIEW_SNOOZED_AT, 0L)
-        val threshold =
-            if (snoozedAt == 0L) REVIEW_AFTER_SAVED_BYTES else snoozedAt * REVIEW_SNOOZE_FACTOR
-        if (savedBytes < threshold) return
+        val now = System.currentTimeMillis()
+        val firstSeen = prefs.getLong(KEY_REVIEW_FIRST_SEEN, 0L)
+        if (firstSeen == 0L || firstSeen > now) {
+            // Either the first run, or the clock has moved backwards since it. Both mean the
+            // stored instant cannot be used to measure a week, so start measuring from here.
+            prefs.edit().putLong(KEY_REVIEW_FIRST_SEEN, now).apply()
+            return
+        }
+        if (now - firstSeen < REVIEW_AFTER_MS) return
+        if (now < prefs.getLong(KEY_REVIEW_SNOOZED_UNTIL, 0L)) return
+        if (savedBytes < REVIEW_MIN_SAVED_BYTES) return
 
         // Renders are frequent; without this the dialog would be rebuilt behind itself.
         if (reviewDialogShowing || isFinishing || isDestroyed) return
@@ -462,17 +476,12 @@ class MainActivity : Activity() {
                 prefs.edit().putBoolean(KEY_REVIEW_ASKED, true).apply()
                 openStoreListing()
             }
-            .setNegativeButton(R.string.rate_later) { _, _ ->
-                prefs.edit().putLong(KEY_REVIEW_SNOOZED_AT, savedBytes).apply()
-            }
+            .setNegativeButton(R.string.rate_later) { _, _ -> snoozeReview(prefs, now) }
             .setOnDismissListener {
                 reviewDialogShowing = false
                 // Dismissed with the back button rather than either choice. Treat it as the
                 // decline it is, or the next render puts the dialog straight back up.
-                if (!prefs.getBoolean(KEY_REVIEW_ASKED, false) &&
-                    prefs.getLong(KEY_REVIEW_SNOOZED_AT, 0L) < savedBytes) {
-                    prefs.edit().putLong(KEY_REVIEW_SNOOZED_AT, savedBytes).apply()
-                }
+                if (!prefs.getBoolean(KEY_REVIEW_ASKED, false)) snoozeReview(prefs, now)
             }
             .show()
     }
@@ -890,6 +899,12 @@ class MainActivity : Activity() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_URL))
         runCatching { startActivity(intent) }.onFailure {
             Toast.makeText(this, R.string.toast_settings_failed, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun snoozeReview(prefs: android.content.SharedPreferences, now: Long) {
+        if (prefs.getLong(KEY_REVIEW_SNOOZED_UNTIL, 0L) <= now) {
+            prefs.edit().putLong(KEY_REVIEW_SNOOZED_UNTIL, now + REVIEW_SNOOZE_MS).apply()
         }
     }
 

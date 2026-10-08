@@ -4,5 +4,5 @@
 • "Restrict 5 apps?" now counts correctly in languages with more than two plural forms.
 • A Source code row in Settings, opening the public repository. The app's claim is that it
   holds no internet permission; this is where checking it starts.
-• Asks you to rate the app once, after it has saved you at least 10 MB. Decline and it waits
-  until it has saved ten times as much again.
+• After a week of blocking actually running, the app asks once whether you would rate it.
+  Decline and it waits a month.
