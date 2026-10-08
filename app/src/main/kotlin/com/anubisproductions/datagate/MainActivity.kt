@@ -36,6 +36,7 @@ import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.play.core.review.ReviewManagerFactory
 import androidx.core.text.BidiFormatter
 
 /**
@@ -54,6 +55,21 @@ class MainActivity : Activity() {
         super.attachBaseContext(LocalePrefs.wrap(newBase))
 
     private companion object {
+        /**
+         * How much the app must have saved before it asks for a rating.
+         *
+         * The app shipped with no public ratings at all, which costs ranking and conversion
+         * together, and each makes the other worse. The fix is to ask - but only once the
+         * question is a fair one. Ten megabytes is roughly the point where the figure stops
+         * being a rounding error and starts being a reason someone would recommend this.
+         *
+         * Never on launch, never on a timer: at that point the user has been given nothing
+         * and the prompt is just noise that earns one star.
+         */
+        const val REVIEW_AFTER_SAVED_BYTES = 10L * 1_048_576L
+        private const val REVIEW_PREFS = "datagate_review"
+        private const val KEY_REVIEW_ASKED = "asked"
+
         const val REQUEST_CONSENT = 1
         const val REQUEST_NOTIFY = 2
         const val FILTER_ALL = 0
@@ -356,11 +372,9 @@ class MainActivity : Activity() {
         backgroundTotal.text = UsageRepository.formatBytes(r.totalBackground)
 
         val on = BlockVpnService.isRunning
-        savedTotal.text = if (on) {
-            UsageRepository.formatBytes(Budget.totalEstimatedSaved(this, blocked))
-        } else {
-            "—"
-        }
+        val saved = if (on) Budget.totalEstimatedSaved(this, blocked) else 0L
+        savedTotal.text = if (on) UsageRepository.formatBytes(saved) else "—"
+        if (on) maybeAskForReview(saved)
 
         master.isChecked = on
         masterState.setText(
@@ -392,6 +406,34 @@ class MainActivity : Activity() {
      *    start, where the permission is requested; it just was never surfaced when the
      *    answer was no.
      */
+    /**
+     * Ask for a rating, once, after the app has visibly earned it.
+     *
+     * Play decides whether a prompt actually appears - it has its own quotas and will silently
+     * do nothing if the user has already rated or has been asked recently. That is why the
+     * "asked" flag is written before the flow is launched rather than after: if we retried
+     * whenever Play stayed quiet, every render would queue another request for a dialog the
+     * user is never going to see.
+     *
+     * Nothing here can fail loudly. A rating prompt is not worth a crash, so every step is
+     * allowed to come to nothing.
+     */
+    private fun maybeAskForReview(savedBytes: Long) {
+        if (savedBytes < REVIEW_AFTER_SAVED_BYTES) return
+
+        val prefs = getSharedPreferences(REVIEW_PREFS, Context.MODE_PRIVATE)
+        if (prefs.getBoolean(KEY_REVIEW_ASKED, false)) return
+        prefs.edit().putBoolean(KEY_REVIEW_ASKED, true).apply()
+
+        runCatching {
+            val manager = ReviewManagerFactory.create(this)
+            manager.requestReviewFlow().addOnCompleteListener { task ->
+                if (!task.isSuccessful || isFinishing || isDestroyed) return@addOnCompleteListener
+                runCatching { manager.launchReviewFlow(this, task.result) }
+            }
+        }
+    }
+
     private fun renderBanner() {
         bulk.visibility = View.VISIBLE
         when {

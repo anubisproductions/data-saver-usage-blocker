@@ -97,4 +97,16 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
+
+    /*
+     * Play In-App Review. Added for FINDINGS/MARKETING: the app had no public ratings at all,
+     * which costs both conversion and ranking, and the two feed each other.
+     *
+     * Checked before adopting: this library talks to the Play Store app over IPC, not over a
+     * socket, and contributes no INTERNET permission to the merged manifest. That is verified
+     * in CI terms by the assertion in tools/check_permissions.sh - if a future version of this
+     * dependency ever adds it, the build is the thing that should fail, not the store listing's
+     * central claim.
+     */
+    implementation("com.google.android.play:review-ktx:2.0.2")
 }
