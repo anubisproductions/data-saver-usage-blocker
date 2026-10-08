@@ -38,6 +38,26 @@ one of the two costs you anything.</p>
   <p>The source is public, so you can check that claim rather than believe it.</p>
 </div>
 
+<h2>Get it</h2>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker/releases">Direct APK</a>
+</p>
+
+<p class="fineprint">The APK on GitHub is signed by us and every release carries its SHA-256
+checksum and the signing fingerprint, so you can verify the download before you trust it.
+Google re-signs what it distributes, so the two builds have different signatures and a phone
+will take one or the other &mdash; pick a channel and stay on it. <a
+href="https://gitlab.com/fdroid/rfp/-/issues/4520">F-Droid inclusion is requested</a> and not
+yet granted.</p>
+
+<p class="fineprint">Checking the central claim for yourself takes one command:</p>
+
+<pre><code>aapt dump permissions DataSaver-v0.8.apk</code></pre>
+
+<p class="fineprint">Six lines come back, and <code>INTERNET</code> is not among them.</p>
+
 <h2>Your notifications keep working</h2>
 
 <p>Notifications on Android are delivered by Google Play Services, not by each app&rsquo;s

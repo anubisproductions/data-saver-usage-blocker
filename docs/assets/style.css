@@ -152,3 +152,37 @@ footer {
   font-size: 0.88rem;
   color: var(--ink-soft);
 }
+
+/* Download row. The primary action is the store; the direct APK sits beside it rather than
+   below, because for this audience the verifiable download is not a lesser option. */
+.get {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.1rem 0 0.9rem;
+}
+.get a {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--accent);
+}
+.get a.primary {
+  background: var(--accent);
+  color: var(--ground);
+}
+.get a:hover { border-color: var(--rule); }
+.get a.primary:hover { background: var(--rule); color: var(--ink); }
+
+.fineprint { color: var(--ink-soft); font-size: 0.94rem; }
+
+pre {
+  background: var(--panel);
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+  padding: 0.7rem 0.9rem;
+  overflow-x: auto;
+}
+pre code { font-size: 0.9rem; }
