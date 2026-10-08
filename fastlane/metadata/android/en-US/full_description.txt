@@ -1,5 +1,7 @@
 Your phone tells you how much data you used. It does not tell you which app is the problem, and it will not stop it for you. Data Saver does both.
 
+If your phone came with a data-saving app that has since been discontinued, this does the same two jobs: shows what spends your data, and stops it.
+
 WHAT YOU SEE
 
 Every app on your phone, ranked by how much data it used this billing cycle. Mobile and Wi-Fi counted separately, because only one of them costs you money.
@@ -34,13 +36,13 @@ HOW RESTRICTING WORKS
 
 Data Saver uses Android's VpnService to create a local connection on your device only. It is not a VPN in the usual sense: no remote server, nothing routed anywhere, no traffic leaving your phone through this app. It is the standard Android way to control which apps may use the network without root.
 
-Android will show you two things because of it, and both are expected. A key icon in the status bar, meaning a local connection exists. And, in quick settings, "This device is connected to the Internet through Data Saver" — Android's own wording for every app that uses this API, which we cannot change. It is not true here: there is nothing to connect through, because the app holds no internet permission. Check the permission list yourself.
+Android will show you two things because of it, and both are expected. A key icon in the status bar, meaning a local connection exists. And, in quick settings, "This device is connected to the Internet through Data Saver" — Android's own wording for every app that uses this API, which we cannot change. It is not true here: there is nothing to connect through. Check the permission list yourself.
 
 PERMISSIONS
 
-• Usage access — the only way Android exposes per-app data figures. You grant it yourself in Settings, and it is read on-device.
+• Usage access — the only way Android exposes per-app data figures. You grant it by hand.
 • VpnService — the local connection used to restrict apps.
-• Network state — to tell Wi-Fi from mobile, so a rule set for one does not apply to the other. It reports connectivity only and grants no network access.
+• Network state — to tell Wi-Fi from mobile. Reports connectivity only, grants no access.
 • Run at startup — to restore your restrictions after a reboot.
 
 FREE, AND USEFUL WHILE FREE

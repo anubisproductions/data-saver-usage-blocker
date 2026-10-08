@@ -1,5 +1,7 @@
 Ponsel Anda memberi tahu berapa banyak kuota yang terpakai. Ia tidak memberi tahu aplikasi mana penyebabnya, dan tidak akan menghentikannya untuk Anda. Aplikasi ini melakukan keduanya.
 
+Jika ponsel Anda dulu punya aplikasi penghemat kuota yang kini dihentikan, aplikasi ini melakukan dua hal yang sama: menunjukkan apa yang memakai kuota Anda, dan menghentikannya.
+
 YANG ANDA LIHAT
 
 Setiap aplikasi di ponsel Anda, diurutkan menurut pemakaian pada siklus tagihan ini. Data seluler dan Wi-Fi dihitung terpisah, karena hanya salah satunya yang menguras pulsa Anda.

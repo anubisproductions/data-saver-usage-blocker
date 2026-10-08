@@ -1,5 +1,7 @@
 Ihr Telefon sagt Ihnen, wie viel Datenvolumen Sie verbraucht haben. Es sagt Ihnen nicht, welche App das Problem ist, und es wird sie auch nicht für Sie stoppen. Diese App macht beides.
 
+Wenn Ihr Telefon eine Datensparfunktion hatte, die inzwischen eingestellt wurde: Diese App erledigt dieselben zwei Aufgaben — sie zeigt, was Ihre Daten verbraucht, und stoppt es.
+
 WAS SIE SEHEN
 
 Jede App auf Ihrem Telefon, sortiert nach ihrem Verbrauch in diesem Abrechnungszeitraum. Mobile Daten und WLAN werden getrennt gezählt, denn nur eines von beiden kostet Sie Geld.

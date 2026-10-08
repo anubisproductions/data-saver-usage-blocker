@@ -1,5 +1,7 @@
 Telefonunuz ne kadar veri harcadığınızı söyler. Hangi uygulamanın sorun olduğunu söylemez ve onu sizin yerinize durdurmaz. Bu uygulama ikisini de yapar.
 
+Telefonunuzda artık kapatılmış bir veri tasarrufu uygulaması varsa, bu aynı iki işi yapar: verinizi neyin harcadığını gösterir ve onu durdurur.
+
 NE GÖRÜRSÜNÜZ
 
 Telefonunuzdaki her uygulama, bu fatura döneminde harcadığı veriye göre sıralanmış. Mobil veri ve Wi-Fi ayrı sayılır, çünkü yalnızca biri size para kaybettirir.

@@ -1,5 +1,7 @@
 Tu teléfono te dice cuántos datos usaste. No te dice qué aplicación es el problema, y no la va a detener por ti. Esta aplicación hace las dos cosas.
 
+Si tu teléfono traía una aplicación para ahorrar datos que ya se descontinuó, esta hace las mismas dos cosas: muestra qué gasta tus datos y lo detiene.
+
 LO QUE VES
 
 Todas las aplicaciones de tu teléfono, ordenadas por lo que consumieron en este ciclo de facturación. Datos móviles y Wi-Fi contados por separado, porque solo uno de los dos te cuesta dinero.

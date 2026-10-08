@@ -1,5 +1,7 @@
 O seu telemóvel diz-lhe quantos dados gastou. Não lhe diz qual é a aplicação responsável, e não a vai bloquear por si. Esta aplicação faz as duas coisas.
 
+Se o seu telemóvel vinha com uma aplicação de poupança de dados que foi descontinuada, esta faz as mesmas duas coisas: mostra o que gasta os seus dados e bloqueia-o.
+
 O QUE VÊ
 
 Todas as aplicações do seu telemóvel, ordenadas pelo que gastaram neste ciclo de faturação. Dados móveis e Wi-Fi contados em separado, porque só um deles lhe custa dinheiro.

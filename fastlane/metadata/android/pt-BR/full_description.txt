@@ -1,5 +1,7 @@
 Seu celular informa quanto de dados você usou. Ele não diz qual app é o problema, e não vai bloqueá-lo por você. Este app faz as duas coisas.
 
+Se o seu celular vinha com um app de economia de dados que foi descontinuado, este faz as mesmas duas coisas: mostra o que gasta seus dados e bloqueia.
+
 O QUE VOCÊ VÊ
 
 Todos os apps do seu celular, ordenados pelo consumo neste ciclo de cobrança. Dados móveis e Wi-Fi contados separadamente, porque só um dos dois custa dinheiro.

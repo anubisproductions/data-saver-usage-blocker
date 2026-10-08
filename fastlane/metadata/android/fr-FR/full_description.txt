@@ -1,5 +1,7 @@
 Votre téléphone vous dit combien de données vous avez consommées. Il ne vous dit pas quelle application pose problème, et il ne l'arrêtera pas à votre place. Cette application fait les deux.
 
+Si votre téléphone était livré avec une application d’économie de données aujourd’hui abandonnée, celle-ci fait les deux mêmes choses : elle montre ce qui consomme vos données, et l’arrête.
+
 CE QUE VOUS VOYEZ
 
 Toutes les applications de votre téléphone, classées selon leur consommation sur le cycle de facturation en cours. Données mobiles et Wi-Fi comptées séparément, parce qu'une seule des deux vous coûte de l'argent.

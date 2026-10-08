@@ -12,6 +12,29 @@ place. No ads. No accounts. No servers.
 
 ---
 
+## Install
+
+| | |
+|---|---|
+| **Google Play** | [play.google.com/store/apps/details?id=com.anubisproductions.datagate](https://play.google.com/store/apps/details?id=com.anubisproductions.datagate) |
+| **Direct APK** | [Releases](https://github.com/anubisproductions/data-saver-usage-blocker/releases) — signed, with a SHA-256 checksum and the signing fingerprint in each release's notes |
+| **Obtainium** | Add `https://github.com/anubisproductions/data-saver-usage-blocker` as a source; it tracks the releases above |
+| **F-Droid** | Requested, not yet accepted — [fdroid/rfp#4520](https://gitlab.com/fdroid/rfp/-/issues/4520) |
+
+The Play build and the APKs here are the same source at the same tag, but **not the same
+signature**: Google re-signs what it distributes, so a device will install one or the other,
+not both. Pick a channel and stay on it, or uninstall before switching — which loses your
+rules and baselines.
+
+Verifying a direct download, before you trust it:
+
+```bash
+sha256sum -c SHA256SUMS.txt
+aapt dump permissions DataSaver-v0.8.apk     # six lines, and no INTERNET
+```
+
+---
+
 ## Why it exists
 
 Every tool in this space does one half of the job:
