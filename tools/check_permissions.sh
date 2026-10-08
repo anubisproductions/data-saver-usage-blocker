@@ -3,13 +3,17 @@
 # invites people to check. A transitive dependency could add one in a version bump without
 # anybody noticing until a user did. This makes the build the thing that notices.
 #
-#   ./tools/check_permissions.sh            # checks the debug merged manifest
-#   ./tools/check_permissions.sh release    # checks release
+#   ./tools/check_permissions.sh              # checks playDebug
+#   ./tools/check_permissions.sh fossRelease  # or any other variant
+#
+# The variant matters: the Play flavour links Play's review library and the FOSS
+# flavour does not. They are different merge inputs; checking one proves nothing
+# about the other.
 #
 # Exits non-zero if a forbidden permission appears, or if the expected set drifts.
 set -euo pipefail
 
-VARIANT="${1:-debug}"
+VARIANT="${1:-playDebug}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 FORBIDDEN=(
@@ -28,8 +32,10 @@ EXPECTED=(
   "android.permission.RECEIVE_BOOT_COMPLETED"
 )
 
-MANIFEST=$(find "$ROOT/app/build/intermediates" -name AndroidManifest.xml \
-             -path "*merged*${VARIANT}*" 2>/dev/null | head -1)
+# Match the variant directory exactly - a bare "*debug*" glob also matches fossDebug
+# and playDebug, so an unqualified name would check whichever find listed first.
+MANIFEST=$(find "$ROOT/app/build/intermediates/merged_manifest/$VARIANT" \
+             -name AndroidManifest.xml 2>/dev/null | head -1)
 
 if [ -z "$MANIFEST" ]; then
   echo "No merged $VARIANT manifest found. Build first:  ./gradlew assemble${VARIANT^}"

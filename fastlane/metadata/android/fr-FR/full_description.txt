@@ -1,0 +1,35 @@
+Votre téléphone vous dit combien de données vous avez consommées. Il ne vous dit pas quelle application pose problème, et il ne l'arrêtera pas à votre place. Cette application fait les deux.
+
+CE QUE VOUS VOYEZ
+
+Toutes les applications de votre téléphone, classées selon leur consommation sur le cycle de facturation en cours. Données mobiles et Wi-Fi comptées séparément, parce qu'une seule des deux vous coûte de l'argent.
+
+Chaque application est aussi séparée en premier plan et arrière-plan. Le premier plan, c'est ce que vous avez dépensé : vous avez ouvert l'application et vous l'avez utilisée. L'arrière-plan, c'est ce que l'application a dépensé toute seule pendant que vous faisiez autre chose. C'est sur ce second chiffre que vous pouvez agir, et presque aucune application ne vous le montre.
+
+CE QUE VOUS POUVEZ FAIRE
+
+Restreignez n'importe quelle application directement depuis la ligne qui affiche sa consommation. Pas d'écran séparé, pas de recherche dans de longues listes.
+
+Vous pouvez aussi décider réseau par réseau. Bloquez une application en données mobiles et laissez-la fonctionner normalement en Wi-Fi. Avec un forfait limité, c'est généralement ce que vous voulez vraiment, puisqu'un seul des deux vous coûte quelque chose.
+
+Une action en un geste permet également de restreindre tout ce qui dépense l'essentiel de ses données en arrière-plan.
+
+Indiquez la taille de votre forfait mensuel et l'application affiche ce qu'il en reste et combien de jours il doit encore tenir. Après avoir restreint une application, elle continue de mesurer et vous montre une estimation de ce que la restriction a permis d'économiser, comparée à ce que cette application dépensait auparavant.
+
+VOS NOTIFICATIONS CONTINUENT D'ARRIVER
+
+Sur Android, les notifications passent par les services Google Play, pas par la connexion propre à chaque application. Bloquez ce qu'il ne faut pas et toutes les notifications du téléphone s'arrêtent : messages, e-mails, appels. Cette application ne vous laissera pas le faire par accident. Les services Google Play, votre application Téléphone et votre application de messages sont protégés et clairement signalés.
+
+CETTE APPLICATION N'A PAS LA PERMISSION INTERNET
+
+Ce n'est pas une promesse de bonne volonté. La permission ne figure pas dans le fichier de l'application, donc Android ne lui permet d'ouvrir aucune connexion. Pas de compte, pas de suivi, pas de rapport de plantage, pas de serveur, pas de publicité. Les chiffres proviennent de compteurs qu'Android tient déjà sur votre appareil.
+
+Le code source est public : vous pouvez vérifier cette affirmation au lieu de la croire.
+
+COMMENT FONCTIONNE LE BLOCAGE
+
+L'application utilise VpnService d'Android pour créer une connexion locale, sur votre appareil uniquement. Ce n'est pas un VPN au sens habituel : aucun serveur distant, rien n'est routé nulle part, et aucun trafic ne quitte votre téléphone par cette application. C'est la méthode standard d'Android pour contrôler quelles applications peuvent utiliser le réseau sans accès root. Android affiche une icône de clé dans la barre d'état pendant que c'est actif ; c'est normal et cela signifie qu'une connexion locale existe.
+
+GRATUIT, ET UTILE EN ÉTANT GRATUIT
+
+Toutes les mesures, les restrictions illimitées, la jauge de forfait et la protection des applications essentielles sont gratuites et le resteront. Fonctionne hors connexion. Nécessite Android 7.0 ou version ultérieure.

@@ -62,6 +62,32 @@ android {
         buildConfig = true
     }
 
+    /*
+     * Two distributions of the same app.
+     *
+     * IzzyOnDroid and F-Droid both scan what a build links against, and Play's in-app review
+     * library is a proprietary blob - shipping it would earn the listing a NonFreeDep flag on
+     * an app whose entire pitch is that you can audit it. The prompt is also pointless there:
+     * outside the Play Store there are no ratings to leave.
+     *
+     * Splitting by flavour rather than by a runtime check keeps the library off the FOSS
+     * variant's classpath altogether, so the claim survives decompilation and not just
+     * reading. src/play and src/foss each supply their own ReviewPrompt.
+     *
+     * Same applicationId and same versionCode in both, so neither store sees a fork - but the
+     * signatures differ, so a device takes one or the other, never both at once.
+     */
+    flavorDimensions += "distribution"
+    productFlavors {
+        create("play") {
+            dimension = "distribution"
+        }
+        create("foss") {
+            dimension = "distribution"
+            versionNameSuffix = "-foss"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -99,7 +125,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
 
     /*
-     * Play In-App Review. Added for FINDINGS/MARKETING: the app had no public ratings at all,
+     * Play In-App Review, Play flavour only. Added for FINDINGS/MARKETING: the app had no public ratings at all,
      * which costs both conversion and ranking, and the two feed each other.
      *
      * Checked before adopting: this library talks to the Play Store app over IPC, not over a
@@ -108,5 +134,5 @@ dependencies {
      * dependency ever adds it, the build is the thing that should fail, not the store listing's
      * central claim.
      */
-    implementation("com.google.android.play:review-ktx:2.0.2")
+    "playImplementation"("com.google.android.play:review-ktx:2.0.2")
 }

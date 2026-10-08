@@ -1,0 +1,35 @@
+Telefonunuz ne kadar veri harcadığınızı söyler. Hangi uygulamanın sorun olduğunu söylemez ve onu sizin yerinize durdurmaz. Bu uygulama ikisini de yapar.
+
+NE GÖRÜRSÜNÜZ
+
+Telefonunuzdaki her uygulama, bu fatura döneminde harcadığı veriye göre sıralanmış. Mobil veri ve Wi-Fi ayrı sayılır, çünkü yalnızca biri size para kaybettirir.
+
+Her uygulama ayrıca ön plan ve arka plan olarak ikiye ayrılır. Ön plan sizin harcadığınızdır: uygulamayı açtınız ve kullandınız. Arka plan ise siz başka bir şeyle uğraşırken uygulamanın kendi başına harcadığıdır. Elinizden bir şey gelen sayı ikincisidir ve neredeyse hiçbir uygulama onu size göstermez.
+
+NE YAPABİLİRSİNİZ
+
+Herhangi bir uygulamayı, kullanımını gösteren satırın üzerinden doğrudan kısıtlayın. Ayrı ekran yok, uzun listelerde arama yok.
+
+Bunu ağ bazında da belirleyebilirsiniz. Bir uygulamayı mobil veride engelleyip Wi-Fi üzerinde normal çalışmasına izin verin. Sınırlı bir pakette genellikle istediğiniz tam olarak budur, çünkü ikisinden yalnızca biri size para kaybettirir.
+
+Ayrıca verisinin çoğunu arka planda harcayan her şeyi tek dokunuşla kısıtlayan bir seçenek var.
+
+Aylık paketinizi girin; uygulama ne kadar kaldığını ve kaç gün yetmesi gerektiğini gösterir. Bir uygulamayı kısıtladıktan sonra ölçmeye devam eder ve kısıtlamanın ne kadar kazandırdığına dair bir tahmin sunar; o uygulamanın önceki harcamasıyla karşılaştırarak.
+
+BİLDİRİMLERİNİZ ÇALIŞMAYA DEVAM EDER
+
+Android'de bildirimler her uygulamanın kendi bağlantısıyla değil, Google Play hizmetleri üzerinden gelir. Yanlış şeyi engellerseniz telefonunuzdaki tüm bildirimler durur: mesajlar, e-posta, aramalar. Bu uygulama bunu yanlışlıkla yapmanıza izin vermez. Google Play hizmetleri, telefon uygulamanız ve mesaj uygulamanız korumalıdır ve açıkça işaretlenmiştir.
+
+BU UYGULAMANIN İNTERNET İZNİ YOK
+
+Bu bir iyi niyet sözü değil. İzin uygulama dosyasında hiç yok, dolayısıyla Android onun herhangi bir bağlantı açmasına izin vermez. Hesap yok, izleme yok, çökme raporu yok, sunucu yok, reklam yok. Rakamlar Android'in cihazınızda zaten tuttuğu sayaçlardan gelir.
+
+Kaynak kodu herkese açık, yani bu iddiayı inanmak yerine doğrulayabilirsiniz.
+
+ENGELLEME NASIL ÇALIŞIR
+
+Uygulama, yalnızca cihazınızda yerel bir bağlantı oluşturmak için Android'in VpnService özelliğini kullanır. Alışıldık anlamda bir VPN değildir: uzak sunucu yoktur, hiçbir şey bir yere yönlendirilmez ve bu uygulama üzerinden telefonunuzdan hiçbir trafik çıkmaz. Root erişimi olmadan hangi uygulamanın ağı kullanabileceğini belirlemenin Android'deki standart yolu budur. Etkinken durum çubuğunda bir anahtar simgesi görünür; bu beklenen bir durumdur ve yerel bir bağlantı olduğu anlamına gelir.
+
+ÜCRETSİZ VE ÜCRETSİZKEN DE İŞE YARAR
+
+Tüm ölçümler, sınırsız kısıtlama, paket göstergesi ve temel uygulamaların korunması ücretsizdir ve öyle kalacak. Çevrimdışı çalışır. Android 7.0 veya üzeri gerekir.

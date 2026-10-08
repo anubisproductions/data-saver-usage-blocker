@@ -1,0 +1,35 @@
+Tu teléfono te dice cuántos datos usaste. No te dice qué aplicación es el problema, y no la va a detener por ti. Esta aplicación hace las dos cosas.
+
+LO QUE VES
+
+Todas las aplicaciones de tu teléfono, ordenadas por lo que consumieron en este ciclo de facturación. Datos móviles y Wi-Fi contados por separado, porque solo uno de los dos te cuesta dinero.
+
+Cada aplicación se divide además en primer y segundo plano. Primer plano es lo que gastaste tú: abriste la aplicación y la usaste. Segundo plano es lo que la aplicación gastó por su cuenta, mientras hacías otra cosa. Ese segundo número es sobre el que puedes actuar, y casi ninguna aplicación te lo muestra.
+
+LO QUE PUEDES HACER
+
+Restringe cualquier aplicación desde la misma fila que muestra su consumo. Sin pantalla aparte, sin buscar en listas largas.
+
+También puedes decidirlo por red. Bloquea una aplicación en datos móviles y déjala funcionando con normalidad en Wi-Fi. Con un plan limitado suele ser justo lo que quieres, ya que solo uno de los dos te cuesta algo.
+
+Hay además una acción de un toque para restringir todo lo que gasta la mayor parte de sus datos en segundo plano.
+
+Indica el tamaño de tu plan mensual y la aplicación te muestra cuánto queda y cuántos días tiene que durar. Después de restringir una aplicación sigue midiendo y te muestra una estimación de lo que la restricción ha ahorrado, comparándolo con lo que esa aplicación gastaba antes.
+
+TUS NOTIFICACIONES SIGUEN LLEGANDO
+
+En Android las notificaciones llegan por los servicios de Google Play, no por la conexión de cada aplicación. Bloquea lo que no debes y se detienen todas las notificaciones del teléfono: mensajes, correo, llamadas. Esta aplicación no te deja hacerlo por accidente. Los servicios de Google Play, tu aplicación de teléfono y la de mensajes están protegidos y claramente marcados.
+
+ESTA APLICACIÓN NO TIENE PERMISO DE INTERNET
+
+No es una promesa de buena voluntad. El permiso no está en el archivo de la aplicación, así que Android no le permite abrir ninguna conexión. Sin cuentas, sin seguimiento, sin informes de fallos, sin servidores, sin anuncios. Las cifras vienen de contadores que Android ya guarda en tu dispositivo.
+
+El código fuente es público, así que puedes comprobar esa afirmación en lugar de creerla.
+
+CÓMO FUNCIONA LA RESTRICCIÓN
+
+La aplicación usa VpnService de Android para crear una conexión local, solo en tu dispositivo. No es una VPN en el sentido habitual: no hay servidor remoto, no se enruta nada a ninguna parte y ningún tráfico sale de tu teléfono a través de esta aplicación. Es el método estándar de Android para controlar qué aplicaciones pueden usar la red sin acceso root. Android muestra un icono de llave en la barra de estado mientras está activa; es lo esperado y significa que existe una conexión local.
+
+GRATIS, Y ÚTIL SIENDO GRATIS
+
+Todas las mediciones, restricciones ilimitadas, el medidor del plan y la protección de las aplicaciones esenciales: gratis, y seguirán siéndolo. Funciona sin conexión. Requiere Android 7.0 o posterior.

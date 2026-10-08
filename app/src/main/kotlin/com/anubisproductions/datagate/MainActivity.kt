@@ -36,7 +36,6 @@ import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.play.core.review.ReviewManagerFactory
 import androidx.core.text.BidiFormatter
 
 /**
@@ -415,8 +414,9 @@ class MainActivity : Activity() {
      * whenever Play stayed quiet, every render would queue another request for a dialog the
      * user is never going to see.
      *
-     * Nothing here can fail loudly. A rating prompt is not worth a crash, so every step is
-     * allowed to come to nothing.
+     * What "asking" means is the flavour's business: the Play build opens Play's own rating
+     * sheet, the FOSS build does nothing at all. The decision of *when* to ask is the same
+     * either way, so it lives here.
      */
     private fun maybeAskForReview(savedBytes: Long) {
         if (savedBytes < REVIEW_AFTER_SAVED_BYTES) return
@@ -425,13 +425,7 @@ class MainActivity : Activity() {
         if (prefs.getBoolean(KEY_REVIEW_ASKED, false)) return
         prefs.edit().putBoolean(KEY_REVIEW_ASKED, true).apply()
 
-        runCatching {
-            val manager = ReviewManagerFactory.create(this)
-            manager.requestReviewFlow().addOnCompleteListener { task ->
-                if (!task.isSuccessful || isFinishing || isDestroyed) return@addOnCompleteListener
-                runCatching { manager.launchReviewFlow(this, task.result) }
-            }
-        }
+        ReviewPrompt.ask(this)
     }
 
     private fun renderBanner() {

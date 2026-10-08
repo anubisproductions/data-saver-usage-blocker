@@ -1,0 +1,35 @@
+Ihr Telefon sagt Ihnen, wie viel Datenvolumen Sie verbraucht haben. Es sagt Ihnen nicht, welche App das Problem ist, und es wird sie auch nicht für Sie stoppen. Diese App macht beides.
+
+WAS SIE SEHEN
+
+Jede App auf Ihrem Telefon, sortiert nach ihrem Verbrauch in diesem Abrechnungszeitraum. Mobile Daten und WLAN werden getrennt gezählt, denn nur eines von beiden kostet Sie Geld.
+
+Jede App wird außerdem in Vordergrund und Hintergrund aufgeteilt. Vordergrund ist das, was Sie selbst verbraucht haben: Sie haben die App geöffnet und benutzt. Hintergrund ist das, was die App von sich aus verbraucht hat, während Sie etwas anderes getan haben. Die zweite Zahl ist die, bei der Sie etwas tun können, und kaum eine App zeigt sie Ihnen.
+
+WAS SIE TUN KÖNNEN
+
+Schränken Sie jede App direkt in der Zeile ein, die ihren Verbrauch anzeigt. Kein eigener Bildschirm, kein Suchen in langen Listen.
+
+Sie können das auch pro Netzwerk entscheiden. Blockieren Sie eine App bei mobilen Daten und lassen Sie sie im WLAN normal weiterlaufen. Bei einem begrenzten Datenvolumen ist das meist genau das, was Sie wollen, denn nur eines von beiden kostet Sie etwas.
+
+Es gibt außerdem eine Aktion, die mit einem Tippen alles einschränkt, was den Großteil seines Datenvolumens im Hintergrund verbraucht.
+
+Geben Sie Ihr monatliches Datenvolumen an, und die App zeigt Ihnen, wie viel übrig ist und für wie viele Tage es noch reichen muss. Nachdem Sie eine App eingeschränkt haben, misst sie weiter und zeigt eine Schätzung, wie viel die Einschränkung gespart hat — verglichen mit dem, was diese App vorher verbraucht hat.
+
+IHRE BENACHRICHTIGUNGEN FUNKTIONIEREN WEITER
+
+Unter Android werden Benachrichtigungen über die Google Play-Dienste zugestellt, nicht über die eigene Verbindung jeder App. Blockieren Sie das Falsche, und sämtliche Benachrichtigungen auf Ihrem Telefon hören auf: Nachrichten, E-Mails, Anrufe. Diese App lässt Sie das nicht versehentlich tun. Die Google Play-Dienste, Ihre Telefon-App und Ihre Nachrichten-App sind geschützt und deutlich gekennzeichnet.
+
+DIESE APP HAT KEINE INTERNETBERECHTIGUNG
+
+Das ist kein Versprechen guten Willens. Die Berechtigung steht nicht in der App-Datei, also erlaubt Android ihr gar nicht erst, eine Verbindung zu öffnen. Keine Konten, kein Tracking, keine Absturzberichte, keine Server, keine Werbung. Die Zahlen stammen aus Zählern, die Android ohnehin schon auf Ihrem Gerät führt.
+
+Der Quellcode ist öffentlich. Sie können diese Aussage also überprüfen, statt sie zu glauben.
+
+WIE DAS BLOCKIEREN FUNKTIONIERT
+
+Die App nutzt den VpnService von Android, um eine lokale Verbindung ausschließlich auf Ihrem Gerät herzustellen. Es ist kein VPN im üblichen Sinn: Es gibt keinen entfernten Server, nichts wird irgendwohin geleitet, und kein Datenverkehr verlässt Ihr Telefon über diese App. Es ist die Standardmethode von Android, um ohne Root-Zugriff zu steuern, welche Apps das Netzwerk nutzen dürfen. Android zeigt währenddessen ein Schlüsselsymbol in der Statusleiste — das ist zu erwarten und bedeutet, dass eine lokale Verbindung besteht.
+
+KOSTENLOS, UND KOSTENLOS AUCH NÜTZLICH
+
+Alle Messungen, unbegrenztes Einschränken, die Volumenanzeige und der Schutz wichtiger Apps sind kostenlos und bleiben es. Funktioniert offline. Erfordert Android 7.0 oder neuer.

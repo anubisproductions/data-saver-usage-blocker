@@ -1,0 +1,35 @@
+O seu telemóvel diz-lhe quantos dados gastou. Não lhe diz qual é a aplicação responsável, e não a vai bloquear por si. Esta aplicação faz as duas coisas.
+
+O QUE VÊ
+
+Todas as aplicações do seu telemóvel, ordenadas pelo que gastaram neste ciclo de faturação. Dados móveis e Wi-Fi contados em separado, porque só um deles lhe custa dinheiro.
+
+Cada aplicação é ainda dividida entre primeiro plano e segundo plano. Primeiro plano é o que gastou você: abriu a aplicação e utilizou-a. Segundo plano é o que a aplicação gastou sozinha, enquanto estava a fazer outra coisa. É sobre esse segundo número que pode agir, e quase nenhuma aplicação lho mostra.
+
+O QUE PODE FAZER
+
+Restrinja qualquer aplicação a partir da própria linha que mostra o seu consumo. Sem ecrã à parte, sem procurar em listas longas.
+
+Também pode decidir isto rede a rede. Bloqueie uma aplicação nos dados móveis e deixe-a funcionar normalmente em Wi-Fi. Num pacote limitado é normalmente isso que quer, já que só um dos dois lhe custa alguma coisa.
+
+Existe ainda uma ação que, com um toque, restringe tudo o que gasta a maior parte dos seus dados em segundo plano.
+
+Indique o tamanho do seu pacote mensal e a aplicação mostra-lhe quanto resta e quantos dias ainda tem de durar. Depois de restringir uma aplicação, continua a medir e mostra uma estimativa do que a restrição poupou, comparando com o que essa aplicação gastava antes.
+
+AS SUAS NOTIFICAÇÕES CONTINUAM A CHEGAR
+
+No Android, as notificações chegam através dos serviços do Google Play, e não pela ligação própria de cada aplicação. Bloqueie o que não deve e todas as notificações do telemóvel param: mensagens, correio, chamadas. Esta aplicação não o deixa fazer isso por acidente. Os serviços do Google Play, a sua aplicação Telefone e a sua aplicação de mensagens estão protegidos e claramente assinalados.
+
+ESTA APLICAÇÃO NÃO TEM PERMISSÃO DE INTERNET
+
+Não é uma promessa de boa vontade. A permissão não existe no ficheiro da aplicação, por isso o Android não lhe permite abrir qualquer ligação. Sem contas, sem rastreio, sem relatórios de falhas, sem servidores, sem anúncios. Os números vêm de contadores que o Android já mantém no seu dispositivo.
+
+O código-fonte é público, por isso pode verificar esta afirmação em vez de acreditar nela.
+
+COMO FUNCIONA O BLOQUEIO
+
+A aplicação usa o VpnService do Android para criar uma ligação local, apenas no seu dispositivo. Não é uma VPN no sentido habitual: não há servidor remoto, nada é encaminhado para lado nenhum, e nenhum tráfego sai do seu telemóvel através desta aplicação. É o método padrão do Android para controlar que aplicações podem usar a rede sem acesso root. O Android mostra um ícone de chave na barra de estado enquanto está ativo; é esperado e significa que existe uma ligação local.
+
+GRATUITA, E ÚTIL SENDO GRATUITA
+
+Todas as medições, restrições ilimitadas, o indicador de pacote e a proteção das aplicações essenciais são gratuitos e vão continuar a sê-lo. Funciona sem ligação. Requer Android 7.0 ou posterior.

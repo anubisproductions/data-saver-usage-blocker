@@ -1,0 +1,10 @@
+• Dropped the "query all packages" permission. The app now asks only which apps have a
+  launcher icon, which is all the list ever showed.
+• Saved-data estimates no longer count time before the phone booted.
+• One status notification instead of two; the old one is removed on upgrade.
+• The headline total now follows the filter you are looking at.
+• Search the app list, with a clear message when nothing matches.
+• The engine banner tells the three states apart instead of two.
+• Usage bars are sized relative to each other, so the list is readable at a glance.
+• Onboarding scrolls, so the grant button stays reachable at large font sizes.
+• The app version is shown in Settings.

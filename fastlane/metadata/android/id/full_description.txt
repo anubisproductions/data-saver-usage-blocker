@@ -1,0 +1,35 @@
+Ponsel Anda memberi tahu berapa banyak kuota yang terpakai. Ia tidak memberi tahu aplikasi mana penyebabnya, dan tidak akan menghentikannya untuk Anda. Aplikasi ini melakukan keduanya.
+
+YANG ANDA LIHAT
+
+Setiap aplikasi di ponsel Anda, diurutkan menurut pemakaian pada siklus tagihan ini. Data seluler dan Wi-Fi dihitung terpisah, karena hanya salah satunya yang menguras pulsa Anda.
+
+Setiap aplikasi juga dipisah menjadi pemakaian latar depan dan latar belakang. Latar depan adalah kuota yang Anda pakai sendiri: Anda membuka aplikasinya. Latar belakang adalah kuota yang dipakai aplikasi itu sendiri saat Anda sedang mengerjakan hal lain. Angka kedua inilah yang bisa Anda kendalikan, dan hampir tidak ada aplikasi yang menunjukkannya.
+
+YANG BISA ANDA LAKUKAN
+
+Batasi aplikasi apa pun langsung dari baris yang menampilkan pemakaiannya. Tanpa layar terpisah, tanpa mencari-cari di daftar panjang.
+
+Anda juga bisa menentukannya per jaringan. Blokir sebuah aplikasi di data seluler dan biarkan tetap berjalan normal di Wi-Fi. Pada kuota terbatas, biasanya itulah yang sebenarnya Anda inginkan, karena hanya satu dari keduanya yang berbiaya.
+
+Ada juga satu tindakan sekali ketuk untuk membatasi semua aplikasi yang menghabiskan sebagian besar kuotanya di latar belakang.
+
+Masukkan besar kuota bulanan Anda, dan aplikasi menunjukkan sisanya serta berapa hari lagi harus bertahan. Setelah Anda membatasi sebuah aplikasi, pengukuran terus berjalan dan Anda melihat perkiraan penghematannya, dibandingkan dengan pemakaian aplikasi itu sebelum dibatasi.
+
+NOTIFIKASI ANDA TETAP JALAN
+
+Notifikasi di Android dikirim melalui layanan Google Play, bukan melalui koneksi masing-masing aplikasi. Blokir yang salah, dan semua notifikasi di ponsel Anda berhenti: pesan, email, panggilan. Aplikasi ini tidak akan membiarkan Anda melakukannya tanpa sengaja. Layanan Google Play, aplikasi telepon, dan aplikasi pesan Anda dilindungi dan ditandai dengan jelas.
+
+APLIKASI INI TIDAK PUNYA IZIN INTERNET
+
+Bukan sekadar janji. Izin itu tidak ada di dalam berkas aplikasi, jadi Android tidak akan mengizinkannya membuka koneksi apa pun. Tidak ada akun, tidak ada analitik, tidak ada laporan kerusakan, tidak ada server, tidak ada iklan. Angkanya berasal dari penghitung yang memang sudah disimpan Android di perangkat Anda.
+
+Kode sumbernya terbuka, jadi Anda bisa memeriksa klaim itu, bukan sekadar mempercayainya.
+
+CARA KERJA PEMBLOKIRAN
+
+Aplikasi ini memakai VpnService bawaan Android untuk membuat koneksi lokal di perangkat Anda saja. Ini bukan VPN dalam pengertian biasa: tidak ada server jauh, tidak ada yang dirutekan ke mana pun, dan tidak ada lalu lintas yang meninggalkan ponsel Anda lewat aplikasi ini. Inilah cara standar Android untuk mengatur aplikasi mana yang boleh memakai jaringan tanpa akses root. Android akan menampilkan ikon kunci di bilah status selama aktif; itu wajar, dan artinya ada koneksi lokal.
+
+GRATIS, DAN BERGUNA SELAGI GRATIS
+
+Semua pengukuran, pembatasan tanpa batas, indikator kuota, dan perlindungan aplikasi penting: gratis, dan akan tetap begitu. Bekerja tanpa internet. Membutuhkan Android 7.0 atau lebih baru.

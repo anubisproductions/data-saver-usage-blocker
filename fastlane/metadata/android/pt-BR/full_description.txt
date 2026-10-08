@@ -1,0 +1,35 @@
+Seu celular informa quanto de dados você usou. Ele não diz qual app é o problema, e não vai bloqueá-lo por você. Este app faz as duas coisas.
+
+O QUE VOCÊ VÊ
+
+Todos os apps do seu celular, ordenados pelo consumo neste ciclo de cobrança. Dados móveis e Wi-Fi contados separadamente, porque só um dos dois custa dinheiro.
+
+Cada app também é dividido em primeiro e segundo plano. Primeiro plano é o que você gastou: você abriu o app e usou. Segundo plano é o que o app gastou sozinho, enquanto você fazia outra coisa. É esse segundo número que dá para resolver, e quase nenhum app mostra ele para você.
+
+O QUE VOCÊ PODE FAZER
+
+Bloqueie qualquer app direto na linha que mostra o consumo dele. Sem tela separada, sem procurar em lista longa.
+
+Você também pode decidir isso por rede. Bloqueie um app nos dados móveis e deixe funcionando normalmente no Wi-Fi. Com um pacote limitado, normalmente é isso que você quer, já que só um dos dois pesa na conta.
+
+Há também uma ação de um toque para bloquear tudo que gasta a maior parte dos dados em segundo plano.
+
+Informe o tamanho do seu pacote mensal e o app mostra quanto sobrou e por quantos dias ainda precisa durar. Depois que você bloqueia um app, ele continua medindo e mostra uma estimativa do que o bloqueio economizou, comparando com o que aquele app gastava antes.
+
+SUAS NOTIFICAÇÕES CONTINUAM CHEGANDO
+
+No Android, as notificações chegam pelos serviços do Google Play, não pela conexão de cada app. Bloqueie a coisa errada e todas as notificações do celular param: mensagens, e-mail, chamadas. Este app não deixa você fazer isso sem querer. Os serviços do Google Play, seu app de telefone e seu app de mensagens são protegidos e marcados claramente.
+
+ESTE APP NÃO TEM PERMISSÃO DE INTERNET
+
+Não é uma promessa de boa vontade. A permissão não existe no arquivo do app, então o Android não permite que ele abra conexão nenhuma. Sem contas, sem rastreamento, sem relatório de falhas, sem servidores, sem anúncios. Os números vêm de contadores que o Android já mantém no seu aparelho.
+
+O código-fonte é público, então você pode verificar essa afirmação em vez de acreditar nela.
+
+COMO O BLOQUEIO FUNCIONA
+
+O app usa o VpnService do Android para criar uma conexão local, somente no seu aparelho. Não é uma VPN no sentido comum: não existe servidor remoto, nada é roteado para lugar nenhum, e nenhum tráfego sai do seu celular por este app. É o método padrão do Android para controlar quais apps podem usar a rede sem acesso root. O Android mostra um ícone de chave na barra de status enquanto está ativo; isso é esperado e significa que existe uma conexão local.
+
+GRÁTIS, E ÚTIL ENQUANTO GRÁTIS
+
+Todas as medições, bloqueios ilimitados, o medidor de pacote e a proteção dos apps essenciais: tudo grátis, e vai continuar assim. Funciona offline. Requer Android 7.0 ou superior.

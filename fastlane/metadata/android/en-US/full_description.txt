@@ -1,0 +1,50 @@
+Your phone tells you how much data you used. It does not tell you which app is the problem, and it will not stop it for you. Data Saver does both.
+
+WHAT YOU SEE
+
+Every app on your phone, ranked by how much data it used this billing cycle. Mobile and Wi-Fi counted separately, because only one of them costs you money.
+
+Each app is also split into foreground and background. Foreground is data you spent — you opened the app and used it. Background is data the app spent on its own, while you were doing something else. That second number is the one you can act on, and most apps never show it to you.
+
+On the phone this app was built on, a tile-matching puzzle game was the single largest data consumer of the month — ahead of the social apps, ahead of video. Nothing on the phone said so.
+
+WHAT YOU CAN DO
+
+Restrict any app straight from the row showing its usage. No separate screen, no hunting through a list. Restricted apps cannot reach the network until you allow them again.
+
+You can also decide this per network. Block an app on mobile data and leave it working normally on Wi-Fi — which on a metered bundle is usually what you actually want, since only one of those two costs you anything.
+
+There is a one-tap action to restrict everything that spends most of its data in the background, so you do not have to work through them one by one.
+
+Set your monthly bundle and the app shows what is left and how long it has to last.
+
+After you restrict an app, Data Saver keeps measuring, and shows you an estimate of what being restricted has saved. It records what the app was spending before, so the comparison means something.
+
+YOUR NOTIFICATIONS KEEP WORKING
+
+Notifications on Android are delivered by Google Play Services, not by each app's own connection. Restrict the wrong thing and every notification on your phone stops — messages, mail, calls. Data Saver will not let you do that by accident. Google Play Services, your dialler and your messaging app are protected and clearly marked.
+
+THIS APP HAS NO INTERNET PERMISSION
+
+Not "we promise not to". It is not in the manifest, so the app is technically incapable of sending anything anywhere. No accounts, no analytics, no crash reporting, no servers, no ads. The figures come from counters Android already keeps on your device.
+
+The source code is public, so you can check that claim rather than take it: github.com/anubisproductions/data-saver-usage-blocker
+
+HOW RESTRICTING WORKS
+
+Data Saver uses Android's VpnService to create a local connection on your device only. It is not a VPN in the usual sense: no remote server, nothing routed anywhere, no traffic leaving your phone through this app. It is the standard Android way to control which apps may use the network without root.
+
+Android will show you two things because of it, and both are expected. A key icon in the status bar, meaning a local connection exists. And, in quick settings, "This device is connected to the Internet through Data Saver" — Android's own wording for every app that uses this API, which we cannot change. It is not true here: there is nothing to connect through, because the app holds no internet permission. Check the permission list yourself.
+
+PERMISSIONS
+
+• Usage access — the only way Android exposes per-app data figures. You grant it yourself in Settings, and it is read on-device.
+• VpnService — the local connection used to restrict apps.
+• Network state — to tell Wi-Fi from mobile, so a rule set for one does not apply to the other. It reports connectivity only and grants no network access.
+• Run at startup — to restore your restrictions after a reboot.
+
+FREE, AND USEFUL WHILE FREE
+
+Every measurement, unlimited restrictions, the bundle gauge and the protected-apps guard are free, and that is the whole app. There is nothing to buy, no subscription, no advertising and no locked features. A paid tier would mean adding the internet permission, and this app is built not to have one.
+
+Works offline. Requires Android 7.0 or later.
