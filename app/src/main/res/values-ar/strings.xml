@@ -66,6 +66,26 @@
     <string name="toast_nothing_background">لا يوجد حاليًا ما يستهلك كثيرًا في الخلفية</string>
     <string name="toast_restrict_first">قيّد تطبيقًا واحدًا على الأقل أولًا</string>
     <string name="toast_vpn_required">الإذن مطلوب لتقييد التطبيقات</string>
+    <string name="set_bundle_hint">مثال: 5000</string>
+    <string name="set_bundle_message">الحجم بالميغابايت. اتركه فارغًا لإخفاء المؤشر.</string>
+    <string name="rate_title">تقييم التطبيق</string>
+    <string name="rate_message">تم توفير %1$s حتى الآن. إذا كان التطبيق مفيدًا، فتقييمك يساعد آخرين على العثور عليه.</string>
+    <string name="rate_yes">تقييم</string>
+    <string name="rate_later">ليس الآن</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_save">حفظ</string>
+    <string name="restrict_bulk_message">هذه التطبيقات استهلكت أكبر قدر من البيانات في الخلفية خلال هذه الدورة — %1$s بينها:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">تقييد</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="zero">لا تطبيقات لتقييدها؟</item>
+        <item quantity="one">تقييد تطبيق واحد؟</item>
+        <item quantity="two">تقييد تطبيقين؟</item>
+        <item quantity="few">تقييد %1$d تطبيقات؟</item>
+        <item quantity="many">تقييد %1$d تطبيقًا؟</item>
+        <item quantity="other">تقييد %1$d تطبيق؟</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="zero">لا تطبيقات مقيّدة على الواي فاي</item>
         <item quantity="one">تطبيق واحد مقيّد على الواي فاي</item>
@@ -91,6 +111,7 @@
     <string name="menu_settings">الإعدادات</string>
     <string name="settings_language">اللغة</string>
     <string name="settings_check_update">التحقق من التحديثات</string>
+    <string name="settings_source">الكود المصدري</string>
     <string name="language_system">لغة الهاتف</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

@@ -60,6 +60,22 @@
     <string name="toast_nothing_background">اس وقت پس منظر میں کچھ بھی زیادہ سرگرم نہیں</string>
     <string name="toast_restrict_first">پہلے کم از کم ایک ایپ محدود کریں</string>
     <string name="toast_vpn_required">ایپس محدود کرنے کے لیے اجازت درکار ہے</string>
+    <string name="set_bundle_hint">مثلاً 5000</string>
+    <string name="set_bundle_message">سائز MB میں۔ گیج چھپانے کے لیے خالی چھوڑ دیں۔</string>
+    <string name="rate_title">ایپ کو ریٹ کریں</string>
+    <string name="rate_message">اب تک %1$s کی بچت۔ اگر یہ مفید رہا تو آپ کی ریٹنگ دوسروں کو ایپ تلاش کرنے میں مدد دیتی ہے۔</string>
+    <string name="rate_yes">ریٹ کریں</string>
+    <string name="rate_later">ابھی نہیں</string>
+    <string name="action_cancel">منسوخ کریں</string>
+    <string name="action_save">محفوظ کریں</string>
+    <string name="restrict_bulk_message">اس سائکل میں پس منظر میں سب سے زیادہ ڈیٹا ان ایپس نے خرچ کیا — کل %1$s:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">محدود کریں</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">%1$d ایپ محدود کریں؟</item>
+        <item quantity="other">%1$d ایپس محدود کریں؟</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">وائی فائی پر %1$d ایپ محدود</item>
         <item quantity="other">وائی فائی پر %1$d ایپس محدود</item>
@@ -77,6 +93,7 @@
     <string name="menu_settings">ترتیبات</string>
     <string name="settings_language">زبان</string>
     <string name="settings_check_update">اپ ڈیٹ چیک کریں</string>
+    <string name="settings_source">سورس کوڈ</string>
     <string name="language_system">فون کی زبان</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

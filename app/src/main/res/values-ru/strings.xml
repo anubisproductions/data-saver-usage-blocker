@@ -64,6 +64,24 @@
     <string name="toast_nothing_background">Сейчас ничто активно не расходует трафик в фоне</string>
     <string name="toast_restrict_first">Сначала ограничьте хотя бы одно приложение</string>
     <string name="toast_vpn_required">Для ограничения приложений требуется разрешение</string>
+    <string name="set_bundle_hint">например 5000</string>
+    <string name="set_bundle_message">Размер в МБ. Оставьте пустым, чтобы скрыть шкалу.</string>
+    <string name="rate_title">Оценить приложение</string>
+    <string name="rate_message">Сэкономлено %1$s. Если приложение пригодилось, оценка поможет другим его найти.</string>
+    <string name="rate_yes">Оценить</string>
+    <string name="rate_later">Не сейчас</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_save">Сохранить</string>
+    <string name="restrict_bulk_message">Эти приложения израсходовали больше всего данных в фоне за цикл — %1$s в сумме:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Ограничить</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">Ограничить %1$d приложение?</item>
+        <item quantity="few">Ограничить %1$d приложения?</item>
+        <item quantity="many">Ограничить %1$d приложений?</item>
+        <item quantity="other">Ограничить %1$d приложения?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">Заблокировано %1$d приложение в Wi‑Fi</item>
         <item quantity="few">Заблокировано %1$d приложения в Wi‑Fi</item>
@@ -85,6 +103,7 @@
     <string name="menu_settings">Настройки</string>
     <string name="settings_language">Язык</string>
     <string name="settings_check_update">Проверить обновления</string>
+    <string name="settings_source">Исходный код</string>
     <string name="language_system">Язык телефона</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

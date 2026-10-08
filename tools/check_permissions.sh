@@ -3,17 +3,13 @@
 # invites people to check. A transitive dependency could add one in a version bump without
 # anybody noticing until a user did. This makes the build the thing that notices.
 #
-#   ./tools/check_permissions.sh              # checks playDebug
-#   ./tools/check_permissions.sh fossRelease  # or any other variant
-#
-# The variant matters: the Play flavour links Play's review library and the FOSS
-# flavour does not. They are different merge inputs; checking one proves nothing
-# about the other.
+#   ./tools/check_permissions.sh          # checks debug
+#   ./tools/check_permissions.sh release  # or release
 #
 # Exits non-zero if a forbidden permission appears, or if the expected set drifts.
 set -euo pipefail
 
-VARIANT="${1:-playDebug}"
+VARIANT="${1:-debug}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 FORBIDDEN=(

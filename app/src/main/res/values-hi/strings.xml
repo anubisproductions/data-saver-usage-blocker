@@ -64,6 +64,22 @@
     <string name="toast_nothing_background">अभी बैकग्राउंड में कुछ भी ज़्यादा सक्रिय नहीं है</string>
     <string name="toast_restrict_first">पहले कम से कम एक ऐप प्रतिबंधित करें</string>
     <string name="toast_vpn_required">ऐप्स प्रतिबंधित करने के लिए अनुमति ज़रूरी है</string>
+    <string name="set_bundle_hint">जैसे 5000</string>
+    <string name="set_bundle_message">MB में साइज़। गेज छिपाने के लिए खाली छोड़ें।</string>
+    <string name="rate_title">ऐप को रेट करें</string>
+    <string name="rate_message">अब तक %1$s बचाए गए। अगर यह उपयोगी रहा, तो आपकी रेटिंग दूसरों को ऐप ढूंढने में मदद करती है।</string>
+    <string name="rate_yes">रेट करें</string>
+    <string name="rate_later">अभी नहीं</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_save">सेव करें</string>
+    <string name="restrict_bulk_message">इस साइकल में बैकग्राउंड में सबसे ज़्यादा डेटा इन्होंने खर्च किया — कुल %1$s:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">रोकें</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">%1$d ऐप रोकें?</item>
+        <item quantity="other">%1$d ऐप रोकें?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">वाई‑फ़ाई पर %1$d ऐप प्रतिबंधित</item>
         <item quantity="other">वाई‑फ़ाई पर %1$d ऐप प्रतिबंधित</item>
@@ -81,6 +97,7 @@
     <string name="menu_settings">सेटिंग</string>
     <string name="settings_language">भाषा</string>
     <string name="settings_check_update">अपडेट देखें</string>
+    <string name="settings_source">सोर्स कोड</string>
     <string name="language_system">फ़ोन की भाषा</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

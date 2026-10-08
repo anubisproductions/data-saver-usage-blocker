@@ -64,6 +64,21 @@
     <string name="toast_nothing_background">Şu anda arka planda çok harcayan bir şey yok</string>
     <string name="toast_restrict_first">Önce en az bir uygulamayı kısıtlayın</string>
     <string name="toast_vpn_required">Uygulamaları kısıtlamak için izin gerekiyor</string>
+    <string name="set_bundle_hint">örn. 5000</string>
+    <string name="set_bundle_message">MB cinsinden boyut. Göstergeyi gizlemek için boş bırakın.</string>
+    <string name="rate_title">Uygulamayı değerlendir</string>
+    <string name="rate_message">Şu ana kadar %1$s tasarruf edildi. İşinize yaradıysa, bir değerlendirme başkalarının uygulamayı bulmasına yardımcı olur.</string>
+    <string name="rate_yes">Değerlendir</string>
+    <string name="rate_later">Şimdi değil</string>
+    <string name="action_cancel">İptal</string>
+    <string name="action_save">Kaydet</string>
+    <string name="restrict_bulk_message">Bu döngüde arka planda en çok veriyi bunlar harcadı — toplam %1$s:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Kısıtla</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="other">%1$d uygulama kısıtlansın mı?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="other">Wi‑Fi üzerinde %1$d uygulama kısıtlandı</item>
     </plurals>
@@ -79,6 +94,7 @@ Listede “%1$s” öğesini bulup açın, sonra Geri’ye basarak buraya dönü
     <string name="menu_settings">Ayarlar</string>
     <string name="settings_language">Dil</string>
     <string name="settings_check_update">Güncellemeleri denetle</string>
+    <string name="settings_source">Kaynak kodu</string>
     <string name="language_system">Telefon dili</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

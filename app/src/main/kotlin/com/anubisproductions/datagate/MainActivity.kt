@@ -65,9 +65,15 @@ class MainActivity : Activity() {
          * Never on launch, never on a timer: at that point the user has been given nothing
          * and the prompt is just noise that earns one star.
          */
+        const val SOURCE_URL = "https://github.com/anubisproductions/data-saver-usage-blocker"
+
         const val REVIEW_AFTER_SAVED_BYTES = 10L * 1_048_576L
         private const val REVIEW_PREFS = "datagate_review"
         private const val KEY_REVIEW_ASKED = "asked"
+        private const val KEY_REVIEW_SNOOZED_AT = "snoozed_at"
+
+        /** How much further the app must save before a "not now" is asked again. */
+        private const val REVIEW_SNOOZE_FACTOR = 10
 
         const val REQUEST_CONSENT = 1
         const val REQUEST_NOTIFY = 2
@@ -315,7 +321,7 @@ class MainActivity : Activity() {
             .setTitle(R.string.usage_handoff_title)
             .setMessage(getString(R.string.usage_handoff_body, getString(R.string.app_name)))
             .setPositiveButton(R.string.usage_handoff_go) { _, _ -> jumpToUsageAccess() }
-            .setNegativeButton(android.R.string.cancel, null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
     }
 
@@ -418,14 +424,57 @@ class MainActivity : Activity() {
      * sheet, the FOSS build does nothing at all. The decision of *when* to ask is the same
      * either way, so it lives here.
      */
-    private fun maybeAskForReview(savedBytes: Long) {
-        if (savedBytes < REVIEW_AFTER_SAVED_BYTES) return
+    private var reviewDialogShowing = false
 
+    /**
+     * Ask for a rating, once, after the app has visibly earned it.
+     *
+     * This is the app's own dialog rather than Play's in-app review flow. The library version
+     * was written first and removed on 2026-10-08: Play quotas that flow and will silently
+     * show nothing, which is indistinguishable from success to the caller, so the one prompt
+     * this app ever gets could be spent on a dialog nobody saw. A dialog we draw ourselves
+     * always appears, and tapping through to the listing always works.
+     *
+     * Nothing here is conditional on the user liking the app. Asking only the happy ones is
+     * review gating and against Play policy, quite apart from making the rating meaningless.
+     *
+     * "Not now" is honoured literally: the ask returns only once the app has saved ten times
+     * as much again, so a user who declines at 10 MB is not asked until 100 MB.
+     */
+    private fun maybeAskForReview(savedBytes: Long) {
         val prefs = getSharedPreferences(REVIEW_PREFS, Context.MODE_PRIVATE)
         if (prefs.getBoolean(KEY_REVIEW_ASKED, false)) return
-        prefs.edit().putBoolean(KEY_REVIEW_ASKED, true).apply()
 
-        ReviewPrompt.ask(this)
+        val snoozedAt = prefs.getLong(KEY_REVIEW_SNOOZED_AT, 0L)
+        val threshold =
+            if (snoozedAt == 0L) REVIEW_AFTER_SAVED_BYTES else snoozedAt * REVIEW_SNOOZE_FACTOR
+        if (savedBytes < threshold) return
+
+        // Renders are frequent; without this the dialog would be rebuilt behind itself.
+        if (reviewDialogShowing || isFinishing || isDestroyed) return
+        reviewDialogShowing = true
+
+        AlertDialog.Builder(this)
+            .setTitle(R.string.rate_title)
+            .setMessage(getString(R.string.rate_message,
+                UsageRepository.formatBytes(savedBytes)))
+            .setPositiveButton(R.string.rate_yes) { _, _ ->
+                prefs.edit().putBoolean(KEY_REVIEW_ASKED, true).apply()
+                openStoreListing()
+            }
+            .setNegativeButton(R.string.rate_later) { _, _ ->
+                prefs.edit().putLong(KEY_REVIEW_SNOOZED_AT, savedBytes).apply()
+            }
+            .setOnDismissListener {
+                reviewDialogShowing = false
+                // Dismissed with the back button rather than either choice. Treat it as the
+                // decline it is, or the next render puts the dialog straight back up.
+                if (!prefs.getBoolean(KEY_REVIEW_ASKED, false) &&
+                    prefs.getLong(KEY_REVIEW_SNOOZED_AT, 0L) < savedBytes) {
+                    prefs.edit().putLong(KEY_REVIEW_SNOOZED_AT, savedBytes).apply()
+                }
+            }
+            .show()
     }
 
     private fun renderBanner() {
@@ -644,10 +693,15 @@ class MainActivity : Activity() {
             "· ${it.label} — ${UsageRepository.formatBytes(it.background)}"
         }
         val total = UsageRepository.formatBytes(candidates.sumOf { it.background })
+        // Localised since versionCode 8. All three of these were English literals, so the
+        // whole confirmation appeared in English on an Arabic, Urdu or Hindi phone - the
+        // one dialog that asks the user to approve a change to five apps at once. The
+        // title is a plural because Arabic and Russian need more than two forms to read.
         AlertDialog.Builder(this)
-            .setTitle("Restrict ${candidates.size} app(s)?")
-            .setMessage("These spent the most data in the background this cycle — $total between them:\n\n$names")
-            .setPositiveButton("Restrict") { _, _ ->
+            .setTitle(resources.getQuantityString(
+                R.plurals.restrict_bulk_title, candidates.size, candidates.size))
+            .setMessage(getString(R.string.restrict_bulk_message, total, names))
+            .setPositiveButton(R.string.restrict_bulk_confirm) { _, _ ->
                 val days = ((r.cycleEnd - r.cycleStart).toDouble() / 86_400_000.0).coerceAtLeast(1.0)
                 candidates.forEach {
                     blocked.add(it.packageName)
@@ -656,26 +710,26 @@ class MainActivity : Activity() {
                 }
                 commit()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
     }
 
     private fun askBundle() {
         val input = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_NUMBER
-            hint = "e.g. 5000"
+            hint = getString(R.string.set_bundle_hint)
             val current = Budget.bundleMb(this@MainActivity)
             if (current > 0) setText(current.toString())
         }
         AlertDialog.Builder(this)
             .setTitle(R.string.set_bundle_title)
-            .setMessage("Size in MB. Leave empty to hide the gauge.")
+            .setMessage(R.string.set_bundle_message)
             .setView(input)
-            .setPositiveButton("Save") { _, _ ->
+            .setPositiveButton(R.string.action_save) { _, _ ->
                 Budget.setBundleMb(this, input.text.toString().toIntOrNull() ?: 0)
                 reload()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
     }
 
@@ -800,6 +854,7 @@ class MainActivity : Activity() {
             getString(R.string.settings_language) + "\n" + currentLanguageLabel(),
             getString(R.string.settings_notification),
             getString(R.string.settings_check_update),
+            getString(R.string.settings_source),
             version,
         )
         AlertDialog.Builder(this)
@@ -813,11 +868,29 @@ class MainActivity : Activity() {
                     // system's own, so this hands the user straight to them.
                     1 -> openNotificationSettings()
                     2 -> openStoreListing()
-                    // 3 is the version line: readable, not actionable.
+                    3 -> openSourceCode()
+                    // 4 is the version line: readable, not actionable.
                 }
             }
-            .setNegativeButton(android.R.string.cancel, null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
+    }
+
+    /**
+     * Opens the public repository.
+     *
+     * The listing's central claim is that this app holds no internet permission and that you
+     * can check rather than believe it. That checking has to start somewhere, and a URL in a
+     * store description is not somewhere anybody is standing when the question occurs to them
+     * - they are in the app, looking at the permission list.
+     *
+     * No browser is guaranteed to exist, which is the usual reason this kind of row crashes.
+     */
+    private fun openSourceCode() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_URL))
+        runCatching { startActivity(intent) }.onFailure {
+            Toast.makeText(this, R.string.toast_settings_failed, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun currentLanguageLabel(): String {
@@ -850,7 +923,7 @@ class MainActivity : Activity() {
                 // On 33+ the framework restarts us; below it, nothing will.
                 if (LocalePrefs.needsManualRestart()) recreate()
             }
-            .setNegativeButton(android.R.string.cancel, null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
     }
 

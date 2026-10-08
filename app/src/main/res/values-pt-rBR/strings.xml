@@ -64,6 +64,22 @@
     <string name="toast_nothing_background">No momento nada está consumindo muito em segundo plano</string>
     <string name="toast_restrict_first">Bloqueie pelo menos um app primeiro</string>
     <string name="toast_vpn_required">É necessária permissão para bloquear apps</string>
+    <string name="set_bundle_hint">ex.: 5000</string>
+    <string name="set_bundle_message">Tamanho em MB. Deixe vazio para ocultar o medidor.</string>
+    <string name="rate_title">Avaliar o app</string>
+    <string name="rate_message">%1$s economizados até agora. Se foi útil, uma avaliação ajuda outras pessoas a encontrar o app.</string>
+    <string name="rate_yes">Avaliar</string>
+    <string name="rate_later">Agora não</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_save">Salvar</string>
+    <string name="restrict_bulk_message">Estes gastaram mais dados em segundo plano neste ciclo — %1$s no total:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Restringir</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">Restringir %1$d app?</item>
+        <item quantity="other">Restringir %1$d apps?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">%1$d app bloqueado no Wi‑Fi</item>
         <item quantity="other">%1$d apps bloqueados no Wi‑Fi</item>
@@ -81,6 +97,7 @@ Procure “%1$s” na lista e ative, depois toque em Voltar para retornar aqui. 
     <string name="menu_settings">Configurações</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_check_update">Verificar atualizações</string>
+    <string name="settings_source">Código-fonte</string>
     <string name="language_system">Idioma do celular</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

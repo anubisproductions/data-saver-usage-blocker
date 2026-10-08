@@ -72,6 +72,22 @@
     <string name="toast_nothing_background">Nothing is heavily background-active right now</string>
     <string name="toast_restrict_first">Restrict at least one app first</string>
     <string name="toast_vpn_required">Permission is required to restrict apps</string>
+    <string name="set_bundle_hint">e.g. 5000</string>
+    <string name="set_bundle_message">Size in MB. Leave empty to hide the gauge.</string>
+    <string name="rate_title">Rate this app</string>
+    <string name="rate_message">%1$s saved so far. If this has been useful, a rating helps other people find it.</string>
+    <string name="rate_yes">Rate</string>
+    <string name="rate_later">Not now</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="restrict_bulk_message">These spent the most data in the background this cycle — %1$s between them:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Restrict</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">Restrict %1$d app?</item>
+        <item quantity="other">Restrict %1$d apps?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">%1$d app restricted on Wi‑Fi</item>
         <item quantity="other">%1$d apps restricted on Wi‑Fi</item>
@@ -89,6 +105,7 @@ Look for “%1$s” in the list and switch it on, then press Back to return here
     <string name="menu_settings">Settings</string>
     <string name="settings_language">Language</string>
     <string name="settings_check_update">Check for updates</string>
+    <string name="settings_source">Source code</string>
     <string name="language_system">Phone language</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

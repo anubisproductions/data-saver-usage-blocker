@@ -64,6 +64,21 @@
     <string name="toast_nothing_background">Saat ini tidak ada yang boros di latar belakang</string>
     <string name="toast_restrict_first">Batasi setidaknya satu aplikasi dulu</string>
     <string name="toast_vpn_required">Izin diperlukan untuk membatasi aplikasi</string>
+    <string name="set_bundle_hint">mis. 5000</string>
+    <string name="set_bundle_message">Ukuran dalam MB. Kosongkan untuk menyembunyikan pengukur.</string>
+    <string name="rate_title">Beri rating aplikasi</string>
+    <string name="rate_message">%1$s dihemat sejauh ini. Jika bermanfaat, rating membantu orang lain menemukannya.</string>
+    <string name="rate_yes">Beri rating</string>
+    <string name="rate_later">Nanti saja</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_save">Simpan</string>
+    <string name="restrict_bulk_message">Ini yang paling banyak memakai data di latar belakang pada siklus ini — total %1$s:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Batasi</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="other">Batasi %1$d aplikasi?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="other">%1$d aplikasi dibatasi di Wi‑Fi</item>
     </plurals>
@@ -79,6 +94,7 @@ Cari “%1$s” di daftar lalu nyalakan, kemudian tekan Kembali untuk kembali ke
     <string name="menu_settings">Setelan</string>
     <string name="settings_language">Bahasa</string>
     <string name="settings_check_update">Periksa pembaruan</string>
+    <string name="settings_source">Kode sumber</string>
     <string name="language_system">Bahasa ponsel</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

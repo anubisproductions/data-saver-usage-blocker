@@ -20,8 +20,8 @@ android {
         applicationId = "com.anubisproductions.datagate"
         minSdk = 24
         targetSdk = 36
-        versionCode = 7
-        versionName = "0.7"
+        versionCode = 8
+        versionName = "0.8"
     }
 
     signingConfigs {
@@ -62,32 +62,6 @@ android {
         buildConfig = true
     }
 
-    /*
-     * Two distributions of the same app.
-     *
-     * IzzyOnDroid and F-Droid both scan what a build links against, and Play's in-app review
-     * library is a proprietary blob - shipping it would earn the listing a NonFreeDep flag on
-     * an app whose entire pitch is that you can audit it. The prompt is also pointless there:
-     * outside the Play Store there are no ratings to leave.
-     *
-     * Splitting by flavour rather than by a runtime check keeps the library off the FOSS
-     * variant's classpath altogether, so the claim survives decompilation and not just
-     * reading. src/play and src/foss each supply their own ReviewPrompt.
-     *
-     * Same applicationId, versionCode and versionName in both: identical code should not
-     * report two different versions, and a suffix here would only fight F-Droid's tag
-     * matching. The signatures differ, so a device takes one or the other, never both.
-     */
-    flavorDimensions += "distribution"
-    productFlavors {
-        create("play") {
-            dimension = "distribution"
-        }
-        create("foss") {
-            dimension = "distribution"
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -123,16 +97,4 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
-
-    /*
-     * Play In-App Review, Play flavour only. Added for FINDINGS/MARKETING: the app had no public ratings at all,
-     * which costs both conversion and ranking, and the two feed each other.
-     *
-     * Checked before adopting: this library talks to the Play Store app over IPC, not over a
-     * socket, and contributes no INTERNET permission to the merged manifest. That is verified
-     * in CI terms by the assertion in tools/check_permissions.sh - if a future version of this
-     * dependency ever adds it, the build is the thing that should fail, not the store listing's
-     * central claim.
-     */
-    "playImplementation"("com.google.android.play:review-ktx:2.0.2")
 }

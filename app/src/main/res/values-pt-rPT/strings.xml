@@ -60,6 +60,22 @@
     <string name="toast_nothing_background">De momento nada está a consumir muito em segundo plano</string>
     <string name="toast_restrict_first">Restrinja primeiro pelo menos uma aplicação</string>
     <string name="toast_vpn_required">É necessária permissão para restringir aplicações</string>
+    <string name="set_bundle_hint">ex.: 5000</string>
+    <string name="set_bundle_message">Tamanho em MB. Deixe vazio para ocultar o indicador.</string>
+    <string name="rate_title">Avaliar a aplicação</string>
+    <string name="rate_message">%1$s poupados até agora. Se foi útil, uma avaliação ajuda outras pessoas a encontrar a aplicação.</string>
+    <string name="rate_yes">Avaliar</string>
+    <string name="rate_later">Agora não</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_save">Guardar</string>
+    <string name="restrict_bulk_message">Estas gastaram mais dados em segundo plano neste ciclo — %1$s no total:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Restringir</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">Restringir %1$d aplicação?</item>
+        <item quantity="other">Restringir %1$d aplicações?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">%1$d aplicação bloqueada em Wi‑Fi</item>
         <item quantity="other">%1$d aplicações bloqueadas em Wi‑Fi</item>
@@ -77,6 +93,7 @@ Procure “%1$s” na lista e ative, depois toque em Voltar para regressar aqui.
     <string name="menu_settings">Definições</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_check_update">Procurar atualizações</string>
+    <string name="settings_source">Código-fonte</string>
     <string name="language_system">Idioma do telemóvel</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->

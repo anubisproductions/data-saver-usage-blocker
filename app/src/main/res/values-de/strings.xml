@@ -60,6 +60,22 @@
     <string name="toast_nothing_background">Derzeit ist nichts stark im Hintergrund aktiv</string>
     <string name="toast_restrict_first">Schränken Sie zuerst mindestens eine App ein</string>
     <string name="toast_vpn_required">Zum Einschränken von Apps ist eine Berechtigung erforderlich</string>
+    <string name="set_bundle_hint">z. B. 5000</string>
+    <string name="set_bundle_message">Größe in MB. Leer lassen, um die Anzeige auszublenden.</string>
+    <string name="rate_title">App bewerten</string>
+    <string name="rate_message">Bisher %1$s gespart. Wenn das nützlich war, hilft eine Bewertung anderen, die App zu finden.</string>
+    <string name="rate_yes">Bewerten</string>
+    <string name="rate_later">Später</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_save">Speichern</string>
+    <string name="restrict_bulk_message">Diese haben in diesem Zyklus im Hintergrund die meisten Daten verbraucht — %1$s zusammen:
+
+%2$s</string>
+    <string name="restrict_bulk_confirm">Einschränken</string>
+    <plurals name="restrict_bulk_title">
+        <item quantity="one">%1$d App einschränken?</item>
+        <item quantity="other">%1$d Apps einschränken?</item>
+    </plurals>
     <plurals name="notif_active_wifi">
         <item quantity="one">%1$d App im WLAN blockiert</item>
         <item quantity="other">%1$d Apps im WLAN blockiert</item>
@@ -77,6 +93,7 @@ Suchen Sie „%1$s“ in der Liste und schalten Sie es ein, dann kehren Sie mit 
     <string name="menu_settings">Einstellungen</string>
     <string name="settings_language">Sprache</string>
     <string name="settings_check_update">Nach Updates suchen</string>
+    <string name="settings_source">Quellcode</string>
     <string name="language_system">Telefonsprache</string>
 
     <!-- First-run activation and empty states: FINDINGS.md F9, F10, F3 -->
