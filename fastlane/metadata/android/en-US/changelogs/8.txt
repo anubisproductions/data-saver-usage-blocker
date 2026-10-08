@@ -1,0 +1,8 @@
+• The bulk-restrict and monthly-bundle dialogs are translated. Their titles, bodies and
+  buttons were English in every language, including the one that asks you to approve
+  restricting several apps at once.
+• "Restrict 5 apps?" now counts correctly in languages with more than two plural forms.
+• A Source code row in Settings, opening the public repository. The app's claim is that it
+  holds no internet permission; this is where checking it starts.
+• Asks you to rate the app once, after it has saved you at least 10 MB. Decline and it waits
+  until it has saved ten times as much again.
