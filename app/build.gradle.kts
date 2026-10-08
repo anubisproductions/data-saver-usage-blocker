@@ -74,8 +74,9 @@ android {
      * variant's classpath altogether, so the claim survives decompilation and not just
      * reading. src/play and src/foss each supply their own ReviewPrompt.
      *
-     * Same applicationId and same versionCode in both, so neither store sees a fork - but the
-     * signatures differ, so a device takes one or the other, never both at once.
+     * Same applicationId, versionCode and versionName in both: identical code should not
+     * report two different versions, and a suffix here would only fight F-Droid's tag
+     * matching. The signatures differ, so a device takes one or the other, never both.
      */
     flavorDimensions += "distribution"
     productFlavors {
@@ -84,7 +85,6 @@ android {
         }
         create("foss") {
             dimension = "distribution"
-            versionNameSuffix = "-foss"
         }
     }
 
