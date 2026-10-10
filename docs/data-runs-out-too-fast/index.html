@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why your data bundle runs out before the month does</title>
+<meta name="description" content="Why a monthly data bundle disappears in two weeks, how to work out what you can actually spend per day, and which part of the usage you can cut without noticing.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/data-runs-out-too-fast/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my data run out so fast?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually a small number of apps spending data in the background while you are not using them. Background usage is invisible, continuous, and often larger than the usage you are aware of." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much data can I use per day?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Divide the bundle by the days in the cycle. A 10 GB monthly bundle is about 333 MB per day. Compare that with what the apps on your phone actually spent and the gap is usually obvious." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does blocking background data break notifications?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not if you leave Google Play Services, your dialler and your messaging app alone. Android delivers notifications through Google Play Services, not through each app's own connection." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>When the bundle goes first</h1>
+  <p class="dateline">Why a month of data disappears in two weeks, and which part of it you
+  can cut without changing how you use your phone.</p>
+</header>
+
+<p>A data bundle that runs out early is almost never the result of you using your phone too
+much. It is usually a handful of apps spending steadily while the phone is in your pocket,
+and the reason it feels mysterious is that this spending is genuinely invisible. Nothing
+tells you it happened.</p>
+
+<h2>The arithmetic nobody does</h2>
+
+<p>Divide the bundle by the days in the cycle. That is your daily allowance, and seeing it
+written down changes how the problem looks:</p>
+
+<table>
+  <tr><th>Bundle</th><th>Per day (30 days)</th></tr>
+  <tr><td>3 GB</td><td>about 100 MB</td></tr>
+  <tr><td>5 GB</td><td>about 170 MB</td></tr>
+  <tr><td>10 GB</td><td>about 333 MB</td></tr>
+  <tr><td>30 GB</td><td>about 1 GB</td></tr>
+</table>
+
+<p>Now compare that with what a single misbehaving app can spend. A game syncing constantly,
+a social app preloading video you never watch, or a store app downloading its own updates
+over mobile data can each run to hundreds of megabytes a month on their own. Two or three of
+those and a 5 GB bundle is gone before you have watched anything deliberately.</p>
+
+<h2>The two kinds of usage, and only one is yours</h2>
+
+<p><strong>Foreground</strong> is data you spent. You opened the app and used it. Cutting
+this means using your phone less, which is not really a solution.</p>
+
+<p><strong>Background</strong> is data the app spent on its own. Cutting this costs you
+nothing you would notice, and on most phones it is a large share of the total.</p>
+
+<p>Android records both figures separately and will show you them per app. Most people never
+look, because the split is three screens deep and the billing cycle defaults to the wrong
+dates. <a href="../which-app-is-using-my-data/">Here is how to find it</a>.</p>
+
+<h2>What actually helps</h2>
+
+<ul>
+  <li><strong>Find the top three, not all of them.</strong> Usage is heavily skewed. Dealing
+  with the worst three apps usually recovers most of what you are losing, and leaves the
+  rest of your phone untouched.</li>
+  <li><strong>Separate Wi-Fi from mobile.</strong> An app that is harmless on Wi-Fi can be
+  expensive on a bundle. Only one of the two costs you money, so block by network rather
+  than outright.</li>
+  <li><strong>Turn off background data for the offenders.</strong>
+  <a href="../stop-apps-using-background-data/">How to do that</a>, including the one setting
+  that will silence every notification on your phone if you get it wrong.</li>
+  <li><strong>Check store app auto-updates.</strong> On a metered connection this alone can
+  be gigabytes, and it is a single setting in the Play Store.</li>
+</ul>
+
+<div class="claim">
+  <p><strong>Beware the advice to just switch everything off.</strong> Restricting Google
+  Play Services stops every notification on the phone &mdash; messages, mail, calls,
+  two-factor codes &mdash; while the apps themselves still open normally, so the cause is
+  almost impossible to guess later.</p>
+</div>
+
+<h2>Knowing where you stand mid-cycle</h2>
+
+<p>The harder problem is not the first day of the bundle. It is day eleven, when you want to
+know whether you are ahead or behind and how long what is left has to last.</p>
+
+<p><a href="../">Data Saver</a> was built for that: enter the bundle and it shows what
+remains and how many days it has to cover, ranks every app by what it spent this cycle with
+the foreground and background split on the same line, and lets you restrict an app per
+network from that same row.</p>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> It is absent from the
+  manifest, so Android will not let the app open a network connection at all. The figures
+  come from counters Android already keeps on your device. The source is public.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>

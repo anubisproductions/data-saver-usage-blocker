@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to stop apps using mobile data in the background</title>
+<meta name="description" content="Three ways to stop Android apps spending mobile data in the background, what each one actually does, and the one setting that will break every notification on your phone.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/stop-apps-using-background-data/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Stop an Android app using mobile data in the background",
+  "description": "Turn off background mobile data for a single app using Android's built-in per-app setting.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "name": "Open the app's data screen", "text": "Settings, then Network & internet, then App data usage, then tap the app." },
+    { "@type": "HowToStep", "name": "Turn off background data", "text": "Switch off Background data. The app keeps working when you open it." },
+    { "@type": "HowToStep", "name": "Leave the messengers of record alone", "text": "Do not restrict Google Play Services, your dialler or your messaging app, or notifications across the whole phone will stop." }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>Stopping background data</h1>
+  <p class="dateline">Three ways to do it, what each actually changes, and the one switch
+  that silences every notification on your phone.</p>
+</header>
+
+<p>Background data is what an app spends while you are not using it. Syncing, refreshing,
+preloading, uploading analytics, fetching its own updates. You cannot see it happening and
+most apps never show you the figure.</p>
+
+<p>If you already know which app is the problem, skip to the fix. If you do not, start with
+<a href="../which-app-is-using-my-data/">finding out which app is using your data</a> &mdash;
+restricting things at random is how people break their phones.</p>
+
+<h2>1. Turn off background data for one app</h2>
+
+<p>This is the precise tool, and usually the right one.</p>
+
+<ol>
+  <li><strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> &rarr;
+      <strong>App data usage</strong></li>
+  <li>Tap the app</li>
+  <li>Switch off <strong>Background data</strong></li>
+</ol>
+
+<p>The app still works normally when you open it. It simply stops spending while you are
+doing something else. For a game, a shopping app or a social app you check a few times a
+day, this costs you nothing you would notice.</p>
+
+<h2>2. Android&rsquo;s own Data Saver</h2>
+
+<p><strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> &rarr;
+<strong>Data Saver</strong> switches background data off for <em>everything</em> at once,
+then lets you add exceptions.</p>
+
+<p>It is a blunt instrument, and it has a specific weakness: it only applies to mobile data,
+and many people discover a month later that they left it on and an app they cared about has
+been quietly stale ever since. It also does nothing about an app that spends heavily in the
+foreground.</p>
+
+<p>Useful as an emergency brake near the end of a bundle. Poor as a permanent setting.</p>
+
+<h2>3. Restrict the app from the network entirely</h2>
+
+<p>Turning off background data stops the app acting on its own. It does not stop it spending
+when you open it. If an app is simply expensive and you want it quiet until you are on
+Wi-Fi, you need something that blocks it by network rather than by state.</p>
+
+<p>Android has no built-in per-app, per-network switch. That is the gap tools like ours
+fill, and it is worth being clear that it is the only part of this page you need software
+for.</p>
+
+<div class="claim">
+  <p><strong>Do not restrict Google Play Services, your dialler, or your messaging app.</strong></p>
+  <p>Android does not deliver notifications over each app&rsquo;s own connection. They
+  arrive through Google Play Services. Restrict that and every notification on the phone
+  stops &mdash; messages, mail, calls, two-factor codes &mdash; and because the apps
+  themselves still open fine, almost nobody connects the symptom to the cause.</p>
+  <p>This is the single most common way people break a phone while trying to save data.</p>
+</div>
+
+<h2>What about force-stopping or uninstalling?</h2>
+
+<p>Force-stopping is temporary; Android restarts most apps within minutes. Disabling an app
+you cannot uninstall does work, but it is a heavier action than the data problem usually
+justifies, and some system apps will not tolerate it.</p>
+
+<p>If an app is genuinely spending gigabytes in the background and you never use it,
+uninstalling is the honest answer and no tool can beat it.</p>
+
+<h2>Doing this without the hunting</h2>
+
+<p>Everything above is possible with the settings already on your phone. It is just spread
+across several screens, one app at a time, with no ranking to tell you where to start.</p>
+
+<p><a href="../">Data Saver</a> puts the usage figures and the restriction switch on the
+same row, works per network so an app can be blocked on mobile data and left alone on
+Wi-Fi, and marks the components that carry your notifications as protected so the mistake
+above is not available to you.</p>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> The permission is absent
+  from the manifest, so Android will not let it open a network connection at all. No
+  accounts, no analytics, no servers, no ads. The source is public, so you can check that
+  rather than believe it.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>

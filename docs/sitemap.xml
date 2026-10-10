@@ -11,6 +11,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://anubisproductions.github.io/data-saver-usage-blocker/stop-apps-using-background-data/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://anubisproductions.github.io/data-saver-usage-blocker/data-runs-out-too-fast/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://anubisproductions.github.io/data-saver-usage-blocker/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
