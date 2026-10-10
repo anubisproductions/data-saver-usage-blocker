@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which app is using your mobile data — and how to find out</title>
+<meta name="description" content="How to find which app is eating your mobile data on Android, using the settings already on your phone. Plus what background data actually means, and how to stop it.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/which-app-is-using-my-data/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Find which app is using your mobile data on Android",
+  "description": "Use Android's built-in data usage screen to see per-app mobile data, split between foreground and background.",
+  "totalTime": "PT2M",
+  "step": [
+    { "@type": "HowToStep", "name": "Open data usage", "text": "Open Settings, then Network & internet, then SIMs or Mobile network, then App data usage." },
+    { "@type": "HowToStep", "name": "Set the billing cycle", "text": "Check the date range at the top matches your billing cycle, not the calendar month." },
+    { "@type": "HowToStep", "name": "Read the list", "text": "Apps are ranked by how much mobile data they used in that period." },
+    { "@type": "HowToStep", "name": "Check background usage", "text": "Tap an app to split its usage into foreground and background. Background is what it spent on its own." }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>Which app is using your mobile data</h1>
+  <p class="dateline">How to find the answer on any Android phone, in about two minutes,
+  using settings you already have.</p>
+</header>
+
+<p>Your phone knows exactly which app spent your data. It just doesn&rsquo;t volunteer it.
+The number on your bill, or in your carrier&rsquo;s app, is a total &mdash; and a total
+tells you that something went wrong without telling you what.</p>
+
+<p>Here is how to get the real answer. No app required for this part.</p>
+
+<h2>Find it in Android&rsquo;s own settings</h2>
+
+<p>The exact wording differs between manufacturers, but the screen exists on every Android
+phone:</p>
+
+<ol>
+  <li><strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong></li>
+  <li><strong>SIMs</strong>, or <strong>Mobile network</strong> on some phones</li>
+  <li><strong>App data usage</strong></li>
+</ol>
+
+<p>On Samsung phones it is <strong>Settings</strong> &rarr; <strong>Connections</strong>
+&rarr; <strong>Data usage</strong> &rarr; <strong>Mobile data usage</strong>. On Xiaomi,
+<strong>Settings</strong> &rarr; <strong>SIM cards &amp; mobile networks</strong> &rarr;
+<strong>Data usage</strong>.</p>
+
+<p>You will get a list of every app, ranked by how much mobile data it used. That list is
+usually the whole story, and it is usually a surprise.</p>
+
+<div class="claim">
+  <p><strong>Check the date range first.</strong> Android defaults to the calendar month.
+  If your billing cycle starts on the 17th, the default view is answering a question you did
+  not ask. There is a date selector at the top of that screen &mdash; set it to match your
+  cycle before you read anything into the numbers.</p>
+</div>
+
+<h2>The number that actually matters</h2>
+
+<p>Tap any app in that list and the usage splits in two.</p>
+
+<p><strong>Foreground</strong> is data you spent. You opened the app, you scrolled, it
+loaded things. If a video app is high here, that is simply what watching video costs.</p>
+
+<p><strong>Background</strong> is data the app spent on its own, while you were doing
+something else entirely &mdash; syncing, refreshing, preloading, uploading analytics,
+downloading its own updates.</p>
+
+<p>That second number is the one you can act on. Cutting foreground usage means using your
+phone less. Cutting background usage costs you nothing you would notice.</p>
+
+<p>On the phone this site&rsquo;s app was built on, the single largest data consumer of the
+month was a tile-matching puzzle game &mdash; ahead of the social apps, ahead of video. It
+was spending almost all of it in the background. Nothing on the phone said so until someone
+went looking.</p>
+
+<h2>How to stop it</h2>
+
+<p>Once you know which app it is, Android gives you a switch. In that same per-app screen,
+look for <strong>Background data</strong> and turn it off. The app keeps working when you
+open it; it stops spending while you are not looking.</p>
+
+<p>Two things worth knowing before you start switching things off:</p>
+
+<ul>
+  <li><strong>Notifications do not come from each app&rsquo;s own connection.</strong> On
+  Android they arrive through Google Play Services. Restrict the wrong system component and
+  every notification on the phone stops &mdash; messages, mail, calls. Leave Google Play
+  Services, your dialler and your messaging app alone.</li>
+  <li><strong>Wi-Fi and mobile data are different questions.</strong> An app that is harmless on
+  Wi-Fi can be expensive on a metered bundle. Only one of the two costs you money, so the
+  useful restriction is usually per-network, not blanket.</li>
+</ul>
+
+<h2>If you want this to take ten seconds instead</h2>
+
+<p>Android gives you the figures and a switch, but in different places, one app at a time,
+with the billing cycle set wrong by default. We built
+<a href="../">Data Saver</a> because doing this by hand every month is tedious.</p>
+
+<p>It shows every app ranked by usage with the foreground and background split on the same
+line, lets you restrict an app from that same row, and does it per network. It also protects
+the components that carry your notifications so you cannot break them by accident.</p>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> Not a promise &mdash; the
+  permission is absent from the manifest, so Android will not let it open a network
+  connection at all. No accounts, no analytics, no servers, no ads. The figures come from
+  counters Android already keeps on your device.</p>
+  <p>The source is public, so that claim is checkable rather than believable.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>
