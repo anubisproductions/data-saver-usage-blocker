@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samsung Max was discontinued — what to use instead</title>
+<meta name="description" content="Samsung Max shut down on 15 June 2026. What it actually did, why the icon may still be on your phone, how to clear the dead VPN profile it leaves behind, and what covers the same job now.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/samsung-max-discontinued/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When was Samsung Max discontinued?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The service ended on 15 June 2026. The April 2026 update was announced as the final version." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Samsung Max still on my phone?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The app often remains installed but inactive. It no longer provides data saving or VPN protection, and should not be relied on for either." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to remove anything after it shut down?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Check Settings, Connections, More connection settings, VPN and remove any leftover profile. Android allows only one active VPN at a time, so a dead profile can stop a replacement app working." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>Samsung Max was discontinued</h1>
+  <p class="dateline">It ended on 15 June 2026. Here is what it did, what to clear off your
+  phone, and what covers the same job now.</p>
+</header>
+
+<p>Samsung Max &mdash; the data-saving and VPN tool that shipped on a lot of Galaxy phones
+&mdash; was shut down on <strong>15 June 2026</strong>. The update released in April 2026
+was announced as its final version, and the service stayed available until the June date.
+Samsung has not named a direct replacement.</p>
+
+<p>It had a longer history than most people realise: it began life as Opera Max, which Opera
+discontinued, after which Samsung took it on and rebranded it. So this is the second time
+this particular tool has gone away.</p>
+
+<h2>Why the icon may still be on your phone</h2>
+
+<p>On many devices the app is still installed. It opens. It does nothing. It no longer
+compresses traffic, no longer saves data, and no longer provides VPN protection, and it
+should not be relied on for any of those.</p>
+
+<div class="claim">
+  <p><strong>Clear the leftover VPN profile, or a replacement may not work.</strong></p>
+  <p>Android allows exactly one active VPN at a time. A dead profile left behind by a
+  discontinued app can silently block whatever you install next.</p>
+  <p>Check <strong>Settings</strong> &rarr; <strong>Connections</strong> &rarr;
+  <strong>More connection settings</strong> &rarr; <strong>VPN</strong> and remove anything
+  belonging to the old app. On non-Samsung phones the path is usually
+  <strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> &rarr;
+  <strong>VPN</strong>.</p>
+</div>
+
+<h2>What it actually did, and what you still need</h2>
+
+<p>The tool bundled several things together. Worth separating them, because they are not all
+gone and they do not all need replacing:</p>
+
+<ul>
+  <li><strong>Showing per-app data usage.</strong> Android does this itself, and always did
+  &mdash; it is just buried.
+  <a href="../which-app-is-using-my-data/">Here is where to find it</a>.</li>
+  <li><strong>Blocking apps from the network.</strong> Android has a per-app background data
+  switch, but no built-in way to block an app on mobile data while leaving it working on
+  Wi-Fi. <a href="../stop-apps-using-background-data/">The options are here</a>.</li>
+  <li><strong>Compressing traffic through a proxy.</strong> This is the part that genuinely
+  went away, and it is the part you should be most relaxed about losing. It worked by routing
+  your traffic through someone else&rsquo;s servers, which is a meaningful privacy cost for a
+  saving that shrinks every year as more of the web arrives already compressed.</li>
+  <li><strong>VPN protection on public Wi-Fi.</strong> A separate job from saving data. If
+  you want it, you want a dedicated VPN, and you should choose it on its own merits.</li>
+</ul>
+
+<h2>What we make</h2>
+
+<p><a href="../">Data Saver</a> covers the first two of those: every app ranked by what it
+spent this cycle, split into what you used and what the app spent on its own, with a
+restriction switch on the same row and separate control for mobile data and Wi-Fi.</p>
+
+<p>It does <em>not</em> do the third or fourth. It does not route your traffic anywhere and
+it is not a VPN.</p>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> The permission is absent
+  from the manifest, so Android will not let it open a network connection at all &mdash; it
+  could not send your traffic through a server if it wanted to. No accounts, no analytics,
+  no servers, no ads.</p>
+  <p>It does use Android&rsquo;s <code>VpnService</code>, which is the standard way to
+  control which apps may use the network without root, and is why Android shows a key icon.
+  Nothing is routed anywhere; the connection is local to your phone. The source is public,
+  so this is checkable rather than a claim.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<p class="fineprint">Anubis Productions is not affiliated with, endorsed by, or connected to
+Samsung Electronics or Opera. Product names are used here only to describe what happened and
+are the property of their respective owners.</p>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>
