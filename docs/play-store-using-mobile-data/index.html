@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why the Play Store eats your mobile data</title>
+<meta name="description" content="The Google Play Store is often the biggest consumer of mobile data on an Android phone, and almost all of it is app updates downloading in the background. Here is the one setting that stops it.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/play-store-using-mobile-data/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Stop the Google Play Store updating apps over mobile data",
+  "description": "Change the Play Store's auto-update setting so app updates only download over Wi-Fi.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "name": "Open Play Store settings", "text": "Open the Play Store, tap your profile picture, then Settings." },
+    { "@type": "HowToStep", "name": "Open network preferences", "text": "Tap Network preferences, then Auto-update apps." },
+    { "@type": "HowToStep", "name": "Choose Wi-Fi only", "text": "Select Over Wi-Fi only. Updates still happen, but they wait for Wi-Fi." }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>The Play Store is probably your biggest app</h1>
+  <p class="dateline">Not the one you use most &mdash; the one that spends most. And almost
+  all of it is invisible.</p>
+</header>
+
+<p>Open the per-app data list on an Android phone and there is a good chance Google Play
+Store sits at or near the top, above the video app, above the social app, above anything you
+would have guessed. It is one of the most common surprises in that screen, and the reason is
+dull: it is downloading app updates, and nobody told it to wait for Wi-Fi.</p>
+
+<figure class="shot">
+  <img src="../assets/shots/worst-background.webp" width="640" height="1386" loading="lazy" decoding="async"
+       alt="Android apps ranked by background data use, with Google Play Store at the top of the list">
+  <figcaption>On the phone this app was built on, the Play Store had spent over a gigabyte
+  in the background in a single cycle.</figcaption>
+</figure>
+
+<h2>The one setting</h2>
+
+<ol>
+  <li>Open the <strong>Play Store</strong></li>
+  <li>Tap your <strong>profile picture</strong>, top right</li>
+  <li><strong>Settings</strong> &rarr; <strong>Network preferences</strong> &rarr;
+      <strong>Auto-update apps</strong></li>
+  <li>Choose <strong>Over Wi-Fi only</strong></li>
+</ol>
+
+<p>That is the whole fix, and on a metered plan it is frequently the single largest saving
+available to you. Updates still install, they just wait for a connection that does not cost
+you anything.</p>
+
+<div class="claim">
+  <p><strong>Do not choose "Don't auto-update apps".</strong> It is on the same menu and it
+  looks like the thorough version of the same idea. It isn't. Apps then stay on old versions
+  indefinitely, including security fixes, until you remember to update by hand &mdash; and
+  nobody remembers.</p>
+  <p>"Over Wi-Fi only" is the setting you want. It costs you nothing and keeps you patched.</p>
+</div>
+
+<h2>Why it is so large</h2>
+
+<p>App updates are full package downloads, not diffs of what changed, and a modern app is
+tens to hundreds of megabytes. Thirty or forty installed apps updating on a normal cadence
+adds up to gigabytes a month without a single deliberate action on your part.</p>
+
+<p>It is also genuinely invisible. There is no notification when an update downloads, nothing
+in your notification shade, and the data is spent while the phone is in your pocket. The only
+place it shows up is the per-app data screen, which almost nobody opens.
+<a href="../which-app-is-using-my-data/">Here is where to find it.</a></p>
+
+<h2>The same problem, other offenders</h2>
+
+<p>Once you look at that list, the Play Store is usually not alone. The pattern repeats:</p>
+
+<ul>
+  <li><strong>Other app stores.</strong> Galaxy Store, Huawei AppGallery and the rest have
+  their own auto-update settings, separate from Google's, and changing one does not change
+  the other.</li>
+  <li><strong>Photo and cloud backup.</strong> Check it is set to Wi-Fi only; uploading
+  originals over mobile is expensive and completely silent.</li>
+  <li><strong>Social and video apps preloading.</strong> Most have a "data saver" or
+  "autoplay" setting of their own, buried in their settings rather than Android's.</li>
+  <li><strong>Podcast and music apps downloading episodes.</strong> Same shape, same fix.</li>
+</ul>
+
+<p>Each of these has its own switch in its own place, which is the real problem: there is no
+single screen that shows you who is spending and lets you stop it.
+<a href="../stop-apps-using-background-data/">Android's own controls get you most of the
+way</a>, one app at a time.</p>
+
+<h2>Doing it from one list</h2>
+
+<p><a href="../">Data Saver</a> exists for the step before all of this: knowing which apps
+are actually worth your attention. It ranks every app by what it spent this cycle with the
+foreground and background split on the same row, and lets you block an app on mobile data
+while leaving it working on Wi-Fi &mdash;
+<a href="../block-app-mobile-data-not-wifi/">something Android has no setting for</a>.</p>
+
+<p>For the Play Store specifically, the setting above is better than blocking it. Blocking a
+store app stops it updating anything; setting it to Wi-Fi only keeps you patched for free.
+Use the app to find the offenders, then use each app's own setting where it has a good one.</p>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> The permission is absent
+  from the manifest, so Android will not let it open a network connection at all. No
+  accounts, no analytics, no servers, no ads. The figures come from counters Android already
+  keeps on your device, and the source is public.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<h2>Related</h2>
+
+<ul>
+  <li><a href="../which-app-is-using-my-data/">Which app is using your mobile data</a>
+  &mdash; where Android hides the per-app figures</li>
+  <li><a href="../block-app-mobile-data-not-wifi/">Block an app on mobile but keep it on
+  Wi-Fi</a> &mdash; the per-network switch Android never shipped</li>
+  <li><a href="../data-runs-out-too-fast/">Why your bundle runs out early</a> &mdash; the
+  daily arithmetic</li>
+</ul>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>
