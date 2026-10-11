@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Block an app on mobile data but keep it on Wi-Fi</title>
+<meta name="description" content="Android has no built-in way to block one app on mobile data while leaving it working on Wi-Fi. Here is what the built-in settings actually do, and what it takes to get a real per-network switch.">
+<link rel="canonical" href="https://anubisproductions.github.io/data-saver-usage-blocker/block-app-mobile-data-not-wifi/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Android block an app on mobile data but not Wi-Fi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not on its own. Android's per-app switch turns off background data, which is about when an app may use the network, not which network. There is no built-in per-app, per-network control." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does turning off background data actually do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It stops the app using mobile data while you are not in it. The app still uses mobile data freely when you open it, and it is unaffected on Wi-Fi." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a per-network blocker need VPN permission?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Without root, VpnService is the only API that lets an app decide which other apps may reach the network. A blocker can use it in package-list mode, naming the apps allowed through and forwarding no packets at all, so nothing is routed, read or captured." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Anubis Productions &middot; Utilities</div>
+  <h1>Blocked on mobile, fine on Wi-Fi</h1>
+  <p class="dateline">The one thing people reasonably expect Android to do with app data,
+  and the one thing it does not.</p>
+</header>
+
+<p>The request is simple enough. One app &mdash; a store, a game, a social app &mdash; is
+expensive, and you would like it to carry on working normally at home and stop touching your
+bundle when you leave. Allowed on Wi-Fi. Blocked on mobile.</p>
+
+<p><strong>Android has no setting for that.</strong> It is worth being clear about it up
+front, because a lot of pages imply otherwise and send people hunting through Settings for a
+switch that was never there.</p>
+
+<h2>What the built-in settings really do</h2>
+
+<p>There are three controls that look like they might be the answer. None of them is.</p>
+
+<h3>1. Background data (per app)</h3>
+
+<p><strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> &rarr;
+<strong>App data usage</strong> &rarr; tap the app &rarr; <strong>Background data</strong>.</p>
+
+<p>This is about <em>when</em>, not <em>which network</em>. It stops the app spending while
+you are not in it. Open the app and it uses mobile data as freely as before. On Wi-Fi it
+changes nothing.</p>
+
+<p>Genuinely useful &mdash; it is the single most effective built-in control, and for a lot
+of apps it solves the real problem. It just isn't a per-network switch.
+<a href="../stop-apps-using-background-data/">More on what it does and the one thing not to
+restrict</a>.</p>
+
+<h3>2. Android's own Data Saver</h3>
+
+<p>Mobile-data-only, which sounds promising, but it applies to <em>every</em> app at once
+and only to background traffic. You then add exceptions one by one. It is an emergency brake
+for the end of a bundle, not a per-app rule.</p>
+
+<h3>3. Metered Wi-Fi</h3>
+
+<p>You can mark a Wi-Fi network as metered so apps treat it like mobile data. That is the
+opposite direction &mdash; it restricts Wi-Fi, it cannot free it.</p>
+
+<div class="claim">
+  <p><strong>Why the gap exists.</strong> Android's model is "is this connection expensive?",
+  not "which app may use which connection". Apps are expected to check whether the network is
+  metered and behave. Many do not, and nothing makes them.</p>
+</div>
+
+<h2>What a real per-network switch requires</h2>
+
+<p>Deciding which apps may reach the network is a privileged thing to do. Without root there
+is exactly one API for it: <code>VpnService</code>. That is why every no-root firewall or
+blocker on Android asks for VPN permission, and why the key icon appears in your status bar.</p>
+
+<p>It is worth understanding, because the permission sounds far more invasive than what it
+is being used for here.</p>
+
+<div class="claim">
+  <p><strong>A blocker does not have to route your traffic anywhere.</strong></p>
+  <p><code>VpnService</code> can be used in package-list mode: the app names which packages
+  are allowed through and never reads the tunnel. No packets are forwarded, inspected,
+  captured or sent to a server. The connection exists only so the system has something to
+  point the blocked apps at.</p>
+  <p>That is a real distinction, not a reassuring phrase. A traffic-compressing or
+  privacy VPN genuinely does route everything you do through someone else's servers. A
+  package-list blocker cannot &mdash; there is nowhere for it to go.</p>
+  <p>The way to tell the difference is the <code>INTERNET</code> permission. An app without
+  it cannot open a network connection at all, whatever its code says.</p>
+</div>
+
+<h2>The trade-off worth knowing before you install anything</h2>
+
+<p>Android allows <strong>one active VPN at a time</strong>. Anything using
+<code>VpnService</code> to block apps therefore occupies that slot, and cannot run alongside
+an actual VPN. If you need an always-on VPN, no no-root blocker will work for you, and that
+is a hard limit rather than a shortcoming of any particular app.</p>
+
+<p>Several open-source apps do this, with different aims &mdash; some are full firewalls with
+per-connection rules, some add DNS filtering. If you want exhaustive control, look at those.</p>
+
+<h2>What we make</h2>
+
+<p><a href="../">Data Saver</a> takes the narrow version of the problem: see what each app
+spent, and block the expensive ones per network, from the same row.</p>
+
+<figure class="shot">
+  <img src="../assets/shots/dashboard.webp" width="640" height="1386" loading="lazy" decoding="async"
+       alt="App list ranked by mobile data, each row showing foreground and background usage with its own restriction switch">
+  <figcaption>Usage and the switch on one row, with mobile and Wi-Fi controlled separately.</figcaption>
+</figure>
+
+<div class="claim">
+  <p><strong>It has no <code>INTERNET</code> permission.</strong> The permission is absent
+  from the manifest, so Android will not let it open a socket &mdash; it could not send your
+  traffic anywhere if it tried. It uses <code>VpnService</code> in package-list mode with no
+  packet forwarding, exactly as described above. No accounts, no analytics, no servers, no
+  ads, and the source is public, so this is checkable rather than a promise.</p>
+</div>
+
+<p class="get">
+  <a class="primary" href="https://play.google.com/store/apps/details?id=com.anubisproductions.datagate">Google&nbsp;Play</a>
+  <a href="https://github.com/anubisproductions/data-saver-usage-blocker">Source code</a>
+</p>
+
+<p class="fineprint">Free, no ads, works offline. Requires Android 7.0 or later.</p>
+
+<h2>Related</h2>
+
+<ul>
+  <li><a href="../which-app-is-using-my-data/">Which app is using your mobile data</a>
+  &mdash; find the culprit before you block anything</li>
+  <li><a href="../stop-apps-using-background-data/">Stopping background data</a> &mdash; the
+  three built-in ways, and the switch that silences every notification</li>
+  <li><a href="../data-runs-out-too-fast/">Why your bundle runs out early</a> &mdash; the
+  arithmetic, and which half of your usage is worth cutting</li>
+</ul>
+
+<footer>
+  Anubis Productions &mdash; Tools You Can Verify.
+</footer>
+
+</div>
+</body>
+</html>
