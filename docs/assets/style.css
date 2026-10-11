@@ -186,3 +186,39 @@ pre {
   overflow-x: auto;
 }
 pre code { font-size: 0.9rem; }
+
+/* --- Device screenshots ------------------------------------------------- */
+/* Real captures, resized only. Width is capped so a phone screenshot never
+   dominates a reading column, and the aspect ratio is declared so the text
+   below does not jump while the image loads. */
+figure.shot {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+figure.shot img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 640 / 1386;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: var(--panel);
+}
+figure.shot figcaption {
+  font-size: .9rem;
+  color: var(--ink-soft);
+  text-align: center;
+  max-width: 38ch;
+  line-height: 1.45;
+}
+.shot-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.shot-pair figure.shot { margin: 0; flex: 1 1 240px; max-width: 300px; }
