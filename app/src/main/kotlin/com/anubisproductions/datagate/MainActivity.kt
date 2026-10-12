@@ -56,6 +56,9 @@ class MainActivity : Activity() {
     private companion object {
         const val SOURCE_URL = "https://github.com/anubisproductions/data-saver-usage-blocker"
 
+        /** Galaxy Store's package name, used to route the rating link back to it. */
+        const val SAMSUNG_INSTALLER = "com.sec.android.app.samsungapps"
+
         /**
          * How long someone must have been *using* the app before it asks for a rating.
          *
@@ -951,14 +954,38 @@ class MainActivity : Activity() {
      * which is the one claim this app cannot afford to lose.
      */
     private fun openStoreListing() {
-        val market = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
-        val web = Intent(
-            Intent.ACTION_VIEW,
-            Uri.parse("https://play.google.com/store/apps/details?id=$packageName"),
-        )
-        val chosen = if (market.resolveActivity(packageManager) != null) market else web
-        runCatching { startActivity(chosen) }.onFailure {
-            Toast.makeText(this, R.string.toast_settings_failed, Toast.LENGTH_SHORT).show()
+        // Send people back to the store they actually installed from. The same build ships
+        // to more than one, and a Galaxy Store user who taps "rate" must not land on Play:
+        // it is a competing store, their install is not registered there, and Samsung may
+        // reject a binary that does it.
+        val candidates = when (installerPackage()) {
+            SAMSUNG_INSTALLER -> listOf(
+                "samsungapps://ProductDetail/$packageName",
+                "https://apps.samsung.com/appquery/appDetail.as?appId=$packageName",
+            )
+            // Unknown installer covers sideloads and F-Droid. market:// resolves to
+            // whichever store is present, and the web URL is the last resort.
+            else -> listOf(
+                "market://details?id=$packageName",
+                "https://play.google.com/store/apps/details?id=$packageName",
+            )
         }
+        for (uri in candidates) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            if (intent.resolveActivity(packageManager) != null) {
+                if (runCatching { startActivity(intent) }.isSuccess) return
+            }
+        }
+        Toast.makeText(this, R.string.toast_settings_failed, Toast.LENGTH_SHORT).show()
     }
+
+    /** Which store installed us, or null when sideloaded. */
+    private fun installerPackage(): String? = runCatching {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            packageManager.getInstallSourceInfo(packageName).installingPackageName
+        } else {
+            @Suppress("DEPRECATION")
+            packageManager.getInstallerPackageName(packageName)
+        }
+    }.getOrNull()
 }
