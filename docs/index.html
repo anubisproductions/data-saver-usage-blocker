@@ -36,7 +36,10 @@ one of the two costs you anything.</p>
   not to&rdquo; &mdash; it is absent from the manifest, so Android will not let the app open
   a network connection at all. No accounts, no analytics, no crash reporting, no servers, no
   ads. The figures come from counters Android already keeps on your device.</p>
-  <p>The source is public, so you can check that claim rather than believe it.</p>
+  <p>You do not have to read the code to check that. The permission list on the Play
+  listing is extracted from the app itself, not written by us &mdash; and
+  <code>aapt2 dump permissions</code> on the APK shows the same thing. The source being
+  public is useful for other reasons, but it is not what makes this claim checkable.</p>
 </div>
 
 <h2>Get it</h2>
