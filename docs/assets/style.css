@@ -1,3 +1,29 @@
+/* Self-hosted so the site makes no third-party request at all. The app's claim is
+   that it cannot phone home; a page that calls Google for a font undercuts that, and
+   privacy directories check it. Cinzel and EB Garamond are both SIL OFL, so shipping
+   the files is allowed. Latin subset only, variable weights, 96 KB for all three. */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url('fonts/cinzel-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('fonts/ebgaramond-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/ebgaramond-italic-latin.woff2') format('woff2');
+}
+
 /* Anubis Productions - Utilities line.
    Sandstone ground, tomb-stone text, malachite accent. No pure black or white. */
 
